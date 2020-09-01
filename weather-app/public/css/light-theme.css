@@ -1,0 +1,8 @@
+body {
+    color: var(--text-color_light);
+    background-color: var(--background-color_light);
+}
+
+.header-wrapper__theme-changer {
+    border: 1px var(--text-color_light) solid;
+}

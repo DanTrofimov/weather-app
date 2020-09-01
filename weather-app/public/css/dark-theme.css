@@ -1,0 +1,8 @@
+body {
+    color: var(--text-color_dark);
+    background-color: var(--background-color_dark);
+}
+
+.header-wrapper__theme-changer {
+    border: 1px var(--text-color_dark) solid;
+}
