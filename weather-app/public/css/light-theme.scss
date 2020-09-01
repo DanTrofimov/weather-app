@@ -1,6 +1,7 @@
 @import "variables";
 
 body {
+    transition: background-color 0.5s ease;
     color: $text-color_light;
     background-color: $background-color_light;
 }
