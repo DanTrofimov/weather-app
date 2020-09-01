@@ -47,17 +47,8 @@ export default {
 }
 </script>
 
-<style>
-
-/*theme colors*/
-
-:root {
-    --background-color_light: white;
-    --background-color_dark: black;
-
-    --text-color_light: black;
-    --text-color_dark: white;
-}
+<style lang="scss">
+@import "public/css/variables";
 
 * {
       font-family: Consolas, sans-serif;

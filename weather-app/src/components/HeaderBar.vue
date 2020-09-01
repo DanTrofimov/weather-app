@@ -15,7 +15,9 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "public/css/variables";
+
     .header-wrapper {
         display: flex;
         justify-content: space-between;
