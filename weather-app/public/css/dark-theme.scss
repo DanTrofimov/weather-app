@@ -7,4 +7,11 @@ body {
 
 .header-wrapper__theme-changer {
     border: 1px $text-color_dark solid;
+    box-shadow: 5px 5px $text-color_dark;
+
+    &:active {
+        transition: all 0.1s;
+        transform: translate(5px, 5px);
+        box-shadow: none;
+    }
 }

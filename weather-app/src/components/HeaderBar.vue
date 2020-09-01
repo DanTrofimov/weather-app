@@ -23,14 +23,22 @@
         justify-content: space-between;
         height: 30px;
         margin-top: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .header-wrapper__logo {
-        font-size: 20px;
+        -webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* Internet Explorer/Edge */
+        font-size: 25px;
         font-weight: bold;
     }
 
     .header-wrapper__theme-changer {
+        -webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* Internet Explorer/Edge */
         padding: 5px;
         background-color: rgba(255, 255, 255, 0);
     }

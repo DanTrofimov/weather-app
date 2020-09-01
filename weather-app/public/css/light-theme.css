@@ -5,4 +5,10 @@ body {
 
 .header-wrapper__theme-changer {
   border: 1px black solid;
+  box-shadow: 5px 5px black;
+}
+.header-wrapper__theme-changer:active {
+  transition: all 0.1s;
+  transform: translate(5px, 5px);
+  box-shadow: none;
 }
