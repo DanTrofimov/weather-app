@@ -17,3 +17,14 @@ body {
 .navItem__link:visited {
   color: black;
 }
+
+.weather-item {
+  color: black;
+  border: 2px black solid;
+  box-shadow: 8px 8px black;
+  transition: all 0.2s;
+}
+.weather-item:hover {
+  transform: translate(8px, 8px);
+  box-shadow: none;
+}

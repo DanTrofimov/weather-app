@@ -19,9 +19,6 @@
 <script>
     export default {
         name: "Home",
-        mounted() {
-            console.log(process.env.VUE_APP_BASE_URL)
-        }
     }
 </script>
 
