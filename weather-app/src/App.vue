@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <HeaderBar @changeTheme="darkThemeSwitch"/>
+        <router-view/>
     </div>
 </template>
 

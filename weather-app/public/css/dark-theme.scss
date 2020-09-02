@@ -6,7 +6,7 @@ body {
     background-color: $background-color_dark;
 }
 
-.header-wrapper__theme-changer {
+.header-wrapper__theme-changer, .wrapper__navItem {
     border: 1px $text-color_dark solid;
     box-shadow: 5px 5px $text-color_dark;
 
@@ -14,5 +14,11 @@ body {
         transition: all 0.1s;
         transform: translate(5px, 5px);
         box-shadow: none;
+    }
+}
+
+.navItem__link {
+    &:visited {
+        color: $text-color_dark;
     }
 }

@@ -36,6 +36,7 @@
     }
 
     .header-wrapper__theme-changer {
+        font-weight: 600;
         -webkit-user-select: none;   /* Chrome/Safari/Opera */
         -moz-user-select: none;      /* Firefox */
         -ms-user-select: none;       /* Internet Explorer/Edge */

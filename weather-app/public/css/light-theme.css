@@ -4,12 +4,16 @@ body {
   background-color: white;
 }
 
-.header-wrapper__theme-changer {
+.header-wrapper__theme-changer, .wrapper__navItem {
   border: 1px black solid;
   box-shadow: 5px 5px black;
 }
-.header-wrapper__theme-changer:active {
+.header-wrapper__theme-changer:active, .wrapper__navItem:active {
   transition: all 0.1s;
   transform: translate(5px, 5px);
   box-shadow: none;
+}
+
+.navItem__link:visited {
+  color: black;
 }
