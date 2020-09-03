@@ -1,7 +1,7 @@
 <template>
     <div class="header-wrapper">
-        <p class="header-wrapper__logo">
-            weather-app
+        <p class="header-wrapper__logo logo">
+            <router-link to="/" class="logo__link">weather-app </router-link>
         </p>
         <p class="header-wrapper__theme-changer" v-on:click="$emit('changeTheme')">
             change theme
@@ -19,6 +19,8 @@
     @import "public/css/variables";
 
     .header-wrapper {
+        max-width: 700px;
+        margin: auto;
         display: flex;
         justify-content: space-between;
         height: 30px;
@@ -33,6 +35,10 @@
         -ms-user-select: none;       /* Internet Explorer/Edge */
         font-size: 25px;
         font-weight: bold;
+    }
+
+    .logo__link {
+        text-decoration: none;
     }
 
     .header-wrapper__theme-changer {

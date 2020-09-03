@@ -34,3 +34,7 @@ body {
         box-shadow: none;
     }
 }
+
+.logo__link:visited {
+    color: $text-color_dark;
+}

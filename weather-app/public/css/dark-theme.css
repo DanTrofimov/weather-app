@@ -28,3 +28,7 @@ body {
   transform: translate(8px, 8px);
   box-shadow: none;
 }
+
+.logo__link:visited {
+  color: white;
+}

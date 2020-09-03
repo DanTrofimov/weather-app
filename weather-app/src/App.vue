@@ -59,7 +59,7 @@ export default {
 
 #app {
       transition: all 0.5s;
-      max-width: 800px;
+      max-width: 750px;
       margin: auto;
 }
 

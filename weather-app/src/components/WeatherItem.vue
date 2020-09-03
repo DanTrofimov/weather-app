@@ -1,9 +1,14 @@
 <template>
-    <div class="weather-item">
+    <div class="weather-item item">
         <div>
             <h2> {{ weather.name }} </h2>
             <img :src="imgLink" alt="weather-icon">
-            <h1 class="temperature"> {{ weather.main.temp | round }}°C</h1>
+            <h1 class="item__temperature"> {{ weather.main.temp | round }}°C</h1>
+            <div class="item__other-info">
+                <p>Wind speed: {{ weather.wind.speed }}mph</p>
+                <p>Humidity: {{ weather.main.humidity }}%</p>
+                <p>Pressure {{ weather.main.pressure }}mb</p>
+            </div>
         </div>
     </div>
 </template>
@@ -31,5 +36,9 @@
         place-items: center;
         text-align: center;
         height: 300px;
+    }
+
+    .item__other-info {
+        margin-top: 20px;
     }
 </style>
