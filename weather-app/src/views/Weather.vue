@@ -1,6 +1,6 @@
 <template>
-    <div class="default-weather-main">
-        <div class="default-wrapper">
+    <div class="default-weather-content content">
+        <div class="content__default-wrapper">
             <WeatherItem
                     v-for="weather in getWeather.list"
                     v-bind:key="weather.name"
@@ -8,13 +8,13 @@
                     v-bind:img-link="imgLink + weather.weather[0].icon + '.png'"
             />
         </div>
-        <p class="obtained-info">
+        <p class="content__obtained-info">
             Obtained {{ getObtainedDate }}
         </p>
-        <h3 class="suggestion">
+        <h3 class="content__suggestion">
             Try to find out weather forecast for your city:
         </h3>
-        <div class="search">
+        <div class="content__search search">
             <label>
                 <input
                         type="text"
@@ -30,13 +30,13 @@
                 🔍
             </button>
         </div>
-        <div class="custom-weather-info" v-if="typeof getCustomWeather != 'undefined'">
+        <div class="content__custom-weather-info custom" v-if="typeof getCustomWeather != 'undefined'">
             <WeatherItem
-                    class="custom-weather-item"
+                    class="custom__weather-item"
                     v-bind:weather="getCustomWeather"
             />
             <DetailedWeather
-                    class="detailed-custom-weather-item"
+                    class="custom__detailed-weather-item"
                 v-bind:weather="getCustomWeather"
             />
         </div>
@@ -93,11 +93,11 @@
 
 <style scoped lang="scss">
     @import "public/css/mixins";
-    .default-weather-main {
+    .default-weather-content {
         margin-bottom: 20px;
     }
 
-    .default-wrapper {
+    .content__default-wrapper {
         transition: all 0.5s;
         display: grid;
         gap: 30px;
@@ -108,19 +108,19 @@
         padding-right: 20px;
     }
 
-    .obtained-info {
+    .content__obtained-info {
         text-align: center;
         margin: 30px auto;
     }
 
-    .suggestion {
+    .content__suggestion {
         font-size: 1.5em;
         text-align: center;
         padding: 0 30px 0 30px;
         margin-bottom: 20px;
     }
 
-    .search {
+    .content__search {
         display: flex;
         justify-content: center;
         gap: 10px;
@@ -142,23 +142,23 @@
         border: none;
     }
 
-    .custom-weather-info {
+    .content__custom-weather-info {
         display: flex;
         justify-content: center;
         gap: 30px;
         padding: 0 20px 0 20px;
     }
 
-    .custom-weather-item {
+    .custom__weather-item {
         width: 210px;
     }
 
     @media screen and (max-width: 540px) {
-        .custom-weather-info {
+        .custom {
             flex-direction: column;
         }
 
-        .custom-weather-item, .detailed-custom-weather-item{
+        .custom__weather-item, .custom__detailed-weather-item {
             align-self: center;
         }
 
@@ -169,21 +169,21 @@
     }
 
     @media screen and (max-width: 490px) {
-        .default-wrapper {
+        .content__default-wrapper {
             grid-template-columns: repeat(auto-fill, 170px);
         }
 
-        .obtained-info {
+        .content__obtained-info {
             width: 210px;
         }
 
-        .suggestion {
+        .content__suggestion {
             font-size: 1.2em;
         }
     }
 
     @media screen and (max-width: 410px) {
-        .default-wrapper {
+        .content__default-wrapper {
             grid-template-columns: repeat(auto-fill, 230px);
         }
     }

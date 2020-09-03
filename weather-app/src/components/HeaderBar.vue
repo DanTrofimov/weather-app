@@ -19,12 +19,13 @@
     @import "public/css/variables";
 
     .header-wrapper {
-        max-width: 700px;
-        margin: auto;
         display: flex;
         justify-content: space-between;
         height: 30px;
+        max-width: 700px;
         margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
         padding-left: 15px;
         padding-right: 15px;
     }

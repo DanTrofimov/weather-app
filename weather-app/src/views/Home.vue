@@ -26,12 +26,12 @@
     @import "public/css/variables";
 
     .wrapper {
-        height: 70vh;
-        text-align: center;
-        margin: auto;
-        max-width: 500px;
         display: grid;
         place-items: center;
+        height: 70vh;
+        max-width: 500px;
+        text-align: center;
+        margin: auto;
         padding-right: 20px;
         padding-left: 20px;
 
