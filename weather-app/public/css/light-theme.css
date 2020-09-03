@@ -36,6 +36,7 @@ body {
 .search__bar {
   border: 2px black solid;
   background-color: white;
+  color: black;
 }
 .search__bar::placeholder {
   color: black;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="default-weather-main">
         <div class="default-wrapper">
             <WeatherItem
                     v-for="weather in getWeather.list"
@@ -30,10 +30,14 @@
                 🔍
             </button>
         </div>
-        <WeatherItem
-                v-if="typeof getCustomWeather != 'undefined'"
-                v-bind:weather="getCustomWeather"
-        />
+        <div class="custom-weather-info">
+            <WeatherItem
+                    class="custom-weather-item"
+                    v-if="typeof getCustomWeather != 'undefined'"
+                    v-bind:weather="getCustomWeather"
+                    v-bind:img-link="imgLink + getCustomWeather.weather[0].icon + '.png'"
+            />
+        </div>
     </div>
 </template>
 
@@ -87,6 +91,9 @@
 
 <style scoped lang="scss">
     @import "public/css/mixins";
+    .default-weather-main {
+        margin-bottom: 20px;
+    }
 
     .default-wrapper {
         transition: all 0.5s;
@@ -115,7 +122,7 @@
         display: flex;
         justify-content: center;
         gap: 10px;
-        margin-bottom: 100px;
+        margin-bottom: 30px;
         padding: 0 50px 0 70px;
     }
 
@@ -130,6 +137,15 @@
         border-radius: 10px;
         background-color: rgb(0,0,0,0);
         border: none;
+    }
+
+    .custom-weather-info {
+        display: flex;
+        justify-content: center;
+    }
+
+    .custom-weather-item {
+        width: 210px;
     }
 
     @media screen and (max-width: 490px) {
