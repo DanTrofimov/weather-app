@@ -2,7 +2,7 @@
     <div class="weather-item item">
         <div>
             <h2> {{ weather.name }} </h2>
-            <img :src="imgLink" alt="weather-icon">
+            <img v-bind:src="imgLink" alt="weather-icon" v-if="imgLink">
             <h1 class="item__temperature"> {{ weather.main.temp | round }}°C</h1>
             <div class="item__other-info">
                 <p>Wind speed: {{ weather.wind.speed }}mph</p>
@@ -18,7 +18,7 @@
         name: "WeatherItem",
         props: {
             weather: Object,
-            imgLink: String,
+            imgLink: String
         },
         filters: {
             round(value) {

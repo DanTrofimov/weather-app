@@ -15,11 +15,11 @@ export default new Router({
         {
             path: '/default',
             // lazy loading for page
-            component: () => import("./views/DefaultWeather.vue"),
+            component: () => import("./views/Weather.vue"),
         },
         // {
         //     path: '/detailed',
-        //     component: () => import("./views/DetailedWeather.vue"),
+        //     component: () => import("./views/DetailedWeatherItem.vue"),
         // }
     ]
 })

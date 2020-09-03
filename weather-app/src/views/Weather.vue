@@ -30,12 +30,14 @@
                 🔍
             </button>
         </div>
-        <div class="custom-weather-info">
+        <div class="custom-weather-info" v-if="typeof getCustomWeather != 'undefined'">
             <WeatherItem
                     class="custom-weather-item"
-                    v-if="typeof getCustomWeather != 'undefined'"
                     v-bind:weather="getCustomWeather"
-                    v-bind:img-link="imgLink + getCustomWeather.weather[0].icon + '.png'"
+            />
+            <DetailedWeather
+                    class="detailed-custom-weather-item"
+                v-bind:weather="getCustomWeather"
             />
         </div>
     </div>
@@ -44,9 +46,10 @@
 <script>
     import { mapActions } from 'vuex'
     import WeatherItem from "../components/WeatherItem";
+    import DetailedWeather from "../components/DetailedWeatherItem";
     export default {
         name: "DefaultWeather",
-        components: {WeatherItem},
+        components: {DetailedWeather, WeatherItem},
         computed: {
             getWeather() {
                 return this.$store.getters.getWeather;
@@ -61,7 +64,6 @@
         methods: {
              ...mapActions(['fetchWeather', 'fetchWeatherByName']),
             loadCustomWeather() {
-                console.log(this.getCustomWeather);
                 if (typeof this.getCustomWeather != 'undefined') {
                     this.fetchWeatherByName(this.query)
                 }
@@ -127,9 +129,10 @@
     }
 
     .search__bar {
-        width: 45vw;
-        height: 30px;
+        width: 300px;
+        height: 40px;
         padding: 0 10px 0 10px;
+        font-size: 18px;
     }
 
     .search__icon {
@@ -142,10 +145,27 @@
     .custom-weather-info {
         display: flex;
         justify-content: center;
+        gap: 30px;
+        padding: 0 20px 0 20px;
     }
 
     .custom-weather-item {
         width: 210px;
+    }
+
+    @media screen and (max-width: 540px) {
+        .custom-weather-info {
+            flex-direction: column;
+        }
+
+        .custom-weather-item, .detailed-custom-weather-item{
+            align-self: center;
+        }
+
+        .search__bar {
+            width: 200px;
+            font-size: 15px;
+        }
     }
 
     @media screen and (max-width: 490px) {
