@@ -120,7 +120,7 @@
     }
 
     .search__bar {
-        width: 550px;
+        width: 45vw;
         height: 30px;
         padding: 0 10px 0 10px;
     }
