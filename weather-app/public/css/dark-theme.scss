@@ -38,3 +38,13 @@ body {
 .logo__link:visited {
     color: $text-color_dark;
 }
+
+.search__bar {
+    border: 2px $text-color_dark solid;
+    background-color: $background-color_dark;
+    color: $text-color_dark;
+
+    &::placeholder {
+        color: $text-color_dark;
+    }
+}
