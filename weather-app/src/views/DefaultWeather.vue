@@ -31,11 +31,16 @@
         methods: mapActions(['fetchWeather']),
         data() {
             return {
-                imgLink: process.env.VUE_APP_GET_IMG_URL
+                imgLink: process.env.VUE_APP_GET_IMG_URL,
+                cities: [
+                    {name : 'Boston', id : 4930956},
+                    {name : 'Kazan', id : 551487},
+                    {name : 'Moscow', id: 524901}
+                ],
             }
         },
         mounted() {
-            if (this.getWeather.length === 0) this.fetchWeather();
+            if (this.getWeather.length === 0) this.fetchWeather(this.cities.map(city => city.id));
         }
     }
 </script>
@@ -56,10 +61,12 @@
 
     .obtained-info {
         text-align: center;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        margin-right: auto;
-        margin-left: auto;
-        width: 210px;
+        margin: 30px auto;
+    }
+
+    @media screen and (max-width: 490px) {
+        .obtained-info {
+            width: 210px;
+        }
     }
 </style>
