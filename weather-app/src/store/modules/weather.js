@@ -11,14 +11,13 @@ export default {
             const customWeatherResponse = await fetch(`${process.env.VUE_APP_BASE_URL}weather?q=${name}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
                 .then((result) => {
                     if (result.status === 400 || result.status === 404) {
-                        throw new Error("Unknown city")
+                        ctx.commit('updateErrorStatus', true);
+                        throw new Error('Unknown city');
                     }
-                    return result
-                }).catch(
-                    ctx.commit('updateErrorStatus', true)
-                );
+                    return result;
+                });
             const customWeather = await customWeatherResponse.json();
-            ctx.commit('updateCustomWeather', customWeather)
+            ctx.commit('updateCustomWeather', customWeather);
             ctx.commit('updateErrorStatus', false)
         }
     },
