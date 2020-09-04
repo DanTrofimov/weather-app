@@ -30,7 +30,7 @@
                 🔍
             </button>
         </div>
-        <div class="content__custom-weather-info custom" v-if="typeof getCustomWeather != 'undefined'">
+        <div class="content__custom-weather-info custom" v-if="typeof getCustomWeather != 'undefined' && !getErrorStatus">
             <WeatherItem
                     class="custom__weather-item"
                     v-bind:weather="getCustomWeather"
@@ -39,6 +39,9 @@
                     class="custom__detailed-weather-item"
                 v-bind:weather="getCustomWeather"
             />
+        </div>
+        <div v-if="getErrorStatus" class="unknown-city">
+            <h3>Unknown city</h3>
         </div>
     </div>
 </template>
@@ -56,6 +59,9 @@
             },
             getCustomWeather() {
                 return this.$store.getters.getCustomWeather;
+            },
+            getErrorStatus() {
+                return this.$store.getters.getErrorStatus;
             },
             getObtainedDate() {
                 return new Date(this.getWeather.list[0].dt*1000).toLocaleString("en-US")
@@ -153,6 +159,12 @@
         width: 210px;
     }
 
+    .unknown-city {
+        height: 10vh;
+        display: grid;
+        place-items: center;
+    }
+
     @media screen and (max-width: 540px) {
         .custom {
             flex-direction: column;
@@ -184,7 +196,7 @@
 
     @media screen and (max-width: 410px) {
         .content__default-wrapper {
-            grid-template-columns: repeat(auto-fill, 230px);
+            grid-template-columns: repeat(auto-fill, 210px);
         }
     }
 </style>
