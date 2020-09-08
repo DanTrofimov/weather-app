@@ -180,7 +180,7 @@
         }
     }
 
-    @media screen and (max-width: 490px) {
+    @media screen and (max-width: 500px) {
         .content__default-wrapper {
             grid-template-columns: repeat(auto-fill, 170px);
         }
