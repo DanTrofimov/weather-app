@@ -70,7 +70,7 @@
         methods: {
              ...mapActions(['fetchWeather', 'fetchWeatherByName']),
             loadCustomWeather() {
-                if (typeof this.getCustomWeather != 'undefined') {
+                if (typeof this.getCustomWeather != 'undefined' && this.query.trim()) {
                     this.fetchWeatherByName(this.query)
                 }
             },
