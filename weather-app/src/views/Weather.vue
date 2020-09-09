@@ -37,7 +37,7 @@
             />
             <DetailedWeather
                     class="custom__detailed-weather-item"
-                v-bind:weather="getCustomWeather"
+                    v-bind:weather="getCustomWeather"
             />
         </div>
         <div v-if="getErrorStatus" class="unknown-city">
