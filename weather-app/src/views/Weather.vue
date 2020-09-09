@@ -50,6 +50,7 @@
     import { mapActions } from 'vuex'
     import WeatherItem from "../components/WeatherItem";
     import DetailedWeather from "../components/DetailedWeatherItem";
+
     export default {
         name: "DefaultWeather",
         components: {DetailedWeather, WeatherItem},
@@ -93,7 +94,7 @@
         },
         mounted() {
             if (this.getWeather.length === 0) this.fetchWeather(this.cities.map(city => city.id));
-        }
+        },
     }
 </script>
 

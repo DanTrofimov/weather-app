@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
     actions: {
         async fetchWeather(ctx, citiesId) {
@@ -7,33 +9,18 @@ export default {
             ctx.commit('updateWeather', weatherResult)
         },
 
-        // работа с API, name - имя города
         fetchWeatherByName(ctx, name) {
-            fetch(`${process.env.VUE_APP_BASE_URL}weather?q=${name}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
-                .then((response) => {
-                    if (!response.ok) {
-                        /*
-                            при некорректном запросе обновляется статус ошибки, показывающий
-                            юзеру сообщение о том, что город не найден
-                         */
-                        ctx.commit('updateErrorStatus', true);
-                        throw new Error('Unknown city');
-                    }
-                    return response.json()
-                })
-                .then((json) => {
-                    // если все ок, тогда идет последующая работа с json'ом
-                    ctx.commit('updateCustomWeather', json);
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}weather?q=${name}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
+                .then(response => {
+                    ctx.commit('updateCustomWeather', response.data);
                     ctx.commit('updateErrorStatus', false);
                 })
-                /*
-                    тут могу перехватить только свою же ошибку 'Unknown Error',
-                    хотелось бы обработать 404-ую, улетающую в консоль
-                 */
                 .catch((error) => {
-                    console.error(error.message)
-                })
-        }
+                    console.log(error.message);
+                    ctx.commit('updateErrorStatus', true);
+                });
+        },
     },
     mutations: {
         updateWeather(state, weather) {
