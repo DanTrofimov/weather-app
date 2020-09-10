@@ -25,19 +25,18 @@ export default {
                 default:
                     localStorage.setItem('theme', 'light');
             }
-
             this.themeSwitchLocal(localStorage.getItem('theme'))
         },
 
         themeSwitchLocal(localStoreTheme) {
             if (localStoreTheme === 'dark') {
-                this._addDarkTheme()
+                this.addDarkTheme()
             } else if (localStoreTheme === 'light') {
-                this._addLightTheme()
+                this.addLightTheme()
             }
         },
 
-        _addDarkTheme() {
+        addDarkTheme() {
             let darkThemeLinkEl = document.createElement("link");
             darkThemeLinkEl.setAttribute("rel", "stylesheet");
             darkThemeLinkEl.setAttribute("href", "css/dark-theme.css");
@@ -47,7 +46,7 @@ export default {
             docHead.append(darkThemeLinkEl);
             localStorage.setItem('theme', 'dark');
         },
-        _addLightTheme() {
+        addLightTheme() {
             let darkThemeLinkEl = document.querySelector("#dark-theme-style");
             if (darkThemeLinkEl) {
                 let parentNode = darkThemeLinkEl.parentNode;
