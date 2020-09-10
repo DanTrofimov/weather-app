@@ -8,6 +8,7 @@ export default {
                 .get(`${process.env.VUE_APP_BASE_URL}group?id=${cities}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
                 .then(response => {
                     ctx.commit('updateWeather', response.data);
+                    ctx.commit('updateDate', response.data.list[0].dt*1000)
                 })
                 .catch(err => {
                     if (err.response) {
@@ -48,11 +49,15 @@ export default {
         },
         updateErrorStatus(state, error) {
             state.weatherError = error
+        },
+        updateDate(state, date) {
+            state.obtainedDate = date;
         }
     },
     state: {
         weather: [],
         customWeather: {},
+        obtainedDate: '',
         weatherError: false,
     },
     getters: {
@@ -63,7 +68,10 @@ export default {
             return state.customWeather;
         },
         getErrorStatus(state) {
-            return state.weatherError
+            return state.weatherError;
+        },
+        getObtainedDate(state) {
+            return state.obtainedDate;
         }
     }
 }

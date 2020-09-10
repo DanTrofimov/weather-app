@@ -9,16 +9,15 @@
             />
         </div>
 
-        <!--TODO: need to fix handling of async data-->
-        <p class="content__obtained-info" v-if="getWeather.name != undefined">
-            Obtained {{ getObtainedDate() }}
+        <p class="content__obtained-info" v-if="getObtainedDate != 'undefined'">
+            Obtained {{ obtainedDate }}
         </p>
         <p v-else class="content__obtained-info">
             Error to obtain
         </p>
 
         <h3 class="content__suggestion">
-            Try to find out weather forecast of your city:
+            Try to find out weather forecast in your city:
         </h3>
         <div class="content__search search">
             <label>
@@ -60,7 +59,23 @@
     export default {
         name: "Weather",
         components: {DetailedWeather, WeatherItem},
-        computed: mapGetters(['getWeather', 'getCustomWeather', 'getErrorStatus']),
+        data() {
+            return {
+                query: '',
+                imgLink: process.env.VUE_APP_GET_IMG_URL,
+                cities: [
+                    {name : 'Boston', id : 4930956},
+                    {name : 'Kazan', id : 551487},
+                    {name : 'Moscow', id: 524901}
+                ],
+            }
+        },
+        computed: {
+            ...mapGetters(['getWeather', 'getCustomWeather', 'getErrorStatus', 'getObtainedDate']),
+            obtainedDate() {
+                return new Date(this.getObtainedDate).toLocaleString("en-US")
+            }
+        },
         methods: {
             ...mapActions(['fetchWeather', 'fetchWeatherByName']),
             loadCustomWeather() {
@@ -73,23 +88,9 @@
                     this.loadCustomWeather();
                 }
             },
-            getObtainedDate() {
-                return new Date(this.getWeather.list[0].dt*1000).toLocaleString("en-US")
-            }
-        },
-        data() {
-            return {
-                query: '',
-                imgLink: process.env.VUE_APP_GET_IMG_URL,
-                cities: [
-                    {name : 'Boston', id : 4930956},
-                    {name : 'Kazan', id : 551487},
-                    {name : 'Moscow', id: 524901}
-                ],
-            }
         },
         mounted() {
-            if (this.getWeather.length === 0) this.fetchWeather(this.cities.map(city => city.id));
+            this.fetchWeather(this.cities.map(city => city.id));
         },
     }
 </script>
