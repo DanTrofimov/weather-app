@@ -49,16 +49,19 @@ export default {
         },
         _addLightTheme() {
             let darkThemeLinkEl = document.querySelector("#dark-theme-style");
-            let parentNode = darkThemeLinkEl.parentNode;
-            parentNode.removeChild(darkThemeLinkEl);
+            if (darkThemeLinkEl) {
+                let parentNode = darkThemeLinkEl.parentNode;
+                parentNode.removeChild(darkThemeLinkEl);
 
-            let lightThemeLinkEl = document.createElement("link");
-            darkThemeLinkEl.setAttribute("rel", "stylesheet");
-            darkThemeLinkEl.setAttribute("href", "css/light-theme.css");
-            darkThemeLinkEl.setAttribute("id", "light-theme-style");
+                let lightThemeLinkEl = document.createElement("link");
+                darkThemeLinkEl.setAttribute("rel", "stylesheet");
+                darkThemeLinkEl.setAttribute("href", "css/light-theme.css");
+                darkThemeLinkEl.setAttribute("id", "light-theme-style");
 
-            let docHead = document.querySelector("head");
-            docHead.append(lightThemeLinkEl);
+                let docHead = document.querySelector("head");
+                docHead.append(lightThemeLinkEl);
+            }
+
             localStorage.setItem('theme', 'light');
         },
     },
