@@ -17,9 +17,5 @@ export default new Router({
             // lazy loading for page
             component: () => import("./views/Weather.vue"),
         },
-        // {
-        //     path: '/detailed',
-        //     component: () => import("./views/DetailedWeatherItem.vue"),
-        // }
     ]
 })

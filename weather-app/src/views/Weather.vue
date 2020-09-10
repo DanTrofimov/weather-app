@@ -8,8 +8,11 @@
                     v-bind:img-link="imgLink + weather.weather[0].icon + '.png'"
             />
         </div>
-        <p class="content__obtained-info">
+        <p class="content__obtained-info" v-if="getWeather">
             Obtained {{ getObtainedDate }}
+        </p>
+        <p v-else class="content__obtained-info">
+            Error to obtain
         </p>
         <h3 class="content__suggestion">
             Try to find out weather forecast for your city:
@@ -30,7 +33,7 @@
                 🔍
             </button>
         </div>
-        <div class="content__custom-weather-info custom" v-if="typeof getCustomWeather != 'undefined' && !getErrorStatus">
+        <div class="content__custom-weather-info custom" v-if="typeof getCustomWeather.name != 'undefined' && !getErrorStatus">
             <WeatherItem
                     class="custom__weather-item"
                     v-bind:weather="getCustomWeather"
@@ -64,9 +67,6 @@
             getErrorStatus() {
                 return this.$store.getters.getErrorStatus;
             },
-            getObtainedDate() {
-                return new Date(this.getWeather.list[0].dt*1000).toLocaleString("en-US")
-            }
         },
         methods: {
             ...mapActions(['fetchWeather', 'fetchWeatherByName']),
@@ -79,6 +79,9 @@
                 if (e.key === "Enter" && this.query.trim()) {
                     this.loadCustomWeather();
                 }
+            },
+            getObtainedDate() {
+                return new Date(this.getWeather.list[0].dt*1000).toLocaleString("en-US")
             }
         },
         data() {
