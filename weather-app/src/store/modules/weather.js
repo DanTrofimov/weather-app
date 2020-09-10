@@ -4,9 +4,20 @@ export default {
     actions: {
         async fetchWeather(ctx, citiesId) {
             let cities = citiesId.toString();
-            const weatherResponse = await fetch(`${process.env.VUE_APP_BASE_URL}group?id=${cities}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`);
-            const weatherResult = await weatherResponse.json();
-            ctx.commit('updateWeather', weatherResult)
+            await axios
+                .get(`${process.env.VUE_APP_BASE_URL}group?id=${cities}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
+                .then(response => {
+                    ctx.commit('updateWeather', response.data);
+                })
+                .catch(err => {
+                    if (err.response) {
+                        console.error('Oh, we get an error response (5xx, 4xx)');
+                    } else if (err.request) {
+                        console.error('Some troubles with a network, pls check your connection')
+                    } else {
+                        console.error('Something went wrong, pls refresh the page')
+                    }
+                })
         },
 
         async fetchWeatherByName(ctx, name) {
@@ -16,10 +27,16 @@ export default {
                     ctx.commit('updateCustomWeather', response.data);
                     ctx.commit('updateErrorStatus', false);
                 })
-                .catch((error) => {
-                    console.log(error.message);
-                    ctx.commit('updateErrorStatus', true);
-                });
+                .catch(err => {
+                    if (err.response) {
+                        console.error('Oh, we get an error response (5xx, 4xx)');
+                        ctx.commit('updateErrorStatus', true);
+                    } else if (err.request) {
+                        console.error('Some troubles with a network, pls check your connection')
+                    } else {
+                        console.error('Something went wrong, pls refresh the page')
+                    }
+                })
         },
     },
     mutations: {

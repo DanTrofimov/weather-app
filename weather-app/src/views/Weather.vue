@@ -8,12 +8,15 @@
                     v-bind:img-link="imgLink + weather.weather[0].icon + '.png'"
             />
         </div>
-        <p class="content__obtained-info" v-if="getWeather">
-            Obtained {{ getObtainedDate }}
+
+        <!--TODO: need to fix handling of async data-->
+        <p class="content__obtained-info" v-if="getWeather.name != undefined">
+            Obtained {{ getObtainedDate() }}
         </p>
         <p v-else class="content__obtained-info">
             Error to obtain
         </p>
+
         <h3 class="content__suggestion">
             Try to find out weather forecast for your city:
         </h3>
@@ -50,24 +53,14 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
     import WeatherItem from "../components/WeatherItem";
     import DetailedWeather from "../components/DetailedWeatherItem";
 
     export default {
         name: "Weather",
         components: {DetailedWeather, WeatherItem},
-        computed: {
-            getWeather() {
-                return this.$store.getters.getWeather;
-            },
-            getCustomWeather() {
-                return this.$store.getters.getCustomWeather;
-            },
-            getErrorStatus() {
-                return this.$store.getters.getErrorStatus;
-            },
-        },
+        computed: mapGetters(['getWeather', 'getCustomWeather', 'getErrorStatus']),
         methods: {
             ...mapActions(['fetchWeather', 'fetchWeatherByName']),
             loadCustomWeather() {
