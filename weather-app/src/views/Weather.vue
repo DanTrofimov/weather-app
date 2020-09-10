@@ -52,7 +52,7 @@
     import DetailedWeather from "../components/DetailedWeatherItem";
 
     export default {
-        name: "DefaultWeather",
+        name: "Weather",
         components: {DetailedWeather, WeatherItem},
         computed: {
             getWeather() {
@@ -69,7 +69,7 @@
             }
         },
         methods: {
-             ...mapActions(['fetchWeather', 'fetchWeatherByName']),
+            ...mapActions(['fetchWeather', 'fetchWeatherByName']),
             loadCustomWeather() {
                 if (typeof this.getCustomWeather != 'undefined' && this.query.trim()) {
                     this.fetchWeatherByName(this.query)
