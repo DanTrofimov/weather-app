@@ -18,7 +18,7 @@
         </p>
 
         <h3 class="content__suggestion">
-            Try to find out weather forecast for your city:
+            Try to find out weather forecast of your city:
         </h3>
         <div class="content__search search">
             <label>
