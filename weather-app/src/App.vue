@@ -13,6 +13,11 @@ export default {
     components: {
         HeaderBar
     },
+    computed: {
+        currentTheme() {
+            return localStorage.getItem('theme');
+        }
+    },
     methods: {
         themeChanger() {
             switch (localStorage.getItem('theme')) {
@@ -46,6 +51,7 @@ export default {
             docHead.append(darkThemeLinkEl);
             localStorage.setItem('theme', 'dark');
         },
+
         addLightTheme() {
             let darkThemeLinkEl = document.querySelector("#dark-theme-style");
             if (darkThemeLinkEl) {
