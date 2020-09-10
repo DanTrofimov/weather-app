@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <HeaderBar @changeTheme="darkThemeSwitch"/>
+        <HeaderBar @changeTheme="themeChanger"/>
         <router-view/>
     </div>
 </template>
@@ -14,6 +14,29 @@ export default {
         HeaderBar
     },
     methods: {
+        themeChanger() {
+            switch (localStorage.getItem('theme')) {
+                case 'dark':
+                    localStorage.setItem('theme', 'light');
+                    break;
+                case 'light':
+                    localStorage.setItem('theme', 'dark');
+                    break;
+                default:
+                    localStorage.setItem('theme', 'light');
+            }
+
+            this.themeSwitchLocal(localStorage.getItem('theme'))
+        },
+
+        themeSwitchLocal(localStoreTheme) {
+            if (localStoreTheme === 'dark') {
+                this._addDarkTheme()
+            } else if (localStoreTheme === 'light') {
+                this._addLightTheme()
+            }
+        },
+
         _addDarkTheme() {
             let darkThemeLinkEl = document.createElement("link");
             darkThemeLinkEl.setAttribute("rel", "stylesheet");
@@ -22,6 +45,7 @@ export default {
 
             let docHead = document.querySelector("head");
             docHead.append(darkThemeLinkEl);
+            localStorage.setItem('theme', 'dark');
         },
         _addLightTheme() {
             let darkThemeLinkEl = document.querySelector("#dark-theme-style");
@@ -35,16 +59,13 @@ export default {
 
             let docHead = document.querySelector("head");
             docHead.append(lightThemeLinkEl);
+            localStorage.setItem('theme', 'light');
         },
-        darkThemeSwitch() {
-            let darkThemeLinkEl = document.querySelector("#dark-theme-style");
-            if (!darkThemeLinkEl) {
-                this._addDarkTheme()
-            } else {
-                this._addLightTheme()
-            }
-        }
     },
+
+    mounted() {
+        this.themeSwitchLocal(localStorage.getItem('theme'))
+    }
 }
 </script>
 
