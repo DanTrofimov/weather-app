@@ -1,13 +1,13 @@
-# Web weather single-page-application on Vue.js
+# Web weather SPA on Vue.js
 
 ### About:
 In this app I used https://openweathermap.org/api to get some info about current temperature, wind speed, pressure etc. You can get information about weather in three different  default cities. Also you can get more information about specific city.
 
-![example](https://github.com/chackydude/weather-app/raw/master/web-weather-app/public/gifs/custom_weather.gif)
+![example](https://github.com/chackydude/weather-app/raw/master/weather-app/public/gifs/custom_weather.gif)
 
 ### App has a several themes and adaptive layout
 
-![adaptive](https://github.com/chackydude/weather-app/raw/master/web-weather-app/public/gifs/adaptive.gif)
+![adaptive](https://github.com/chackydude/weather-app/raw/master/weather-app/public/gifs/adaptive.gif)
 
 ### About API:
 If [API](https://openweathermap.org/api) requests didn't work with key in the code, you can try to use some of that:
