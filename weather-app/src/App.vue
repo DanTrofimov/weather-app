@@ -13,11 +13,6 @@ export default {
     components: {
         HeaderBar
     },
-    computed: {
-        currentTheme() {
-            return localStorage.getItem('theme');
-        }
-    },
     methods: {
         themeChanger() {
             switch (localStorage.getItem('theme')) {
@@ -49,7 +44,6 @@ export default {
 
             let docHead = document.querySelector("head");
             docHead.append(darkThemeLinkEl);
-            localStorage.setItem('theme', 'dark');
         },
 
         addLightTheme() {
@@ -66,8 +60,6 @@ export default {
                 let docHead = document.querySelector("head");
                 docHead.append(lightThemeLinkEl);
             }
-
-            localStorage.setItem('theme', 'light');
         },
     },
 
@@ -87,7 +79,7 @@ export default {
 }
 
 #app {
-      transition: all 0.5s;
+      transition: background-color 0.5s;
       max-width: 750px;
       margin: auto;
 }
