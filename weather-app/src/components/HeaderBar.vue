@@ -1,7 +1,7 @@
 <template>
     <div class="header-wrapper">
         <p class="header-wrapper__logo logo">
-            <router-link to="/" class="logo__link">weather-app </router-link>
+            <router-link to="/" class="logo__link">weather-app</router-link>
         </p>
         <p class="header-wrapper__theme-changer" v-on:click="$emit('changeTheme')">
             change theme
@@ -26,8 +26,8 @@
         margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .header-wrapper__logo {
@@ -49,5 +49,16 @@
         -ms-user-select: none;       /* Internet Explorer/Edge */
         padding: 5px;
         background-color: rgba(255, 255, 255, 0);
+    }
+
+    @media screen and (max-width: 360px) {
+        .header-wrapper__theme-changer {
+            font-size: 12px;
+            padding: 7px;
+        }
+
+        .logo__link {
+            font-size: 20px;
+        }
     }
 </style>
