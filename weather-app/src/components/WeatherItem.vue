@@ -1,16 +1,19 @@
 <template>
-    <div class="weather-item item">
-        <div>
-            <h2> {{ weather.name }} </h2>
-            <img v-bind:src="imgLink" alt="weather-icon" v-if="imgLink">
-            <h1 class="item__temperature"> {{ weather.main.temp | round }}°C</h1>
-            <div class="item__other-info">
-                <p>Wind speed: {{ weather.wind.speed }}mph</p>
-                <p>Humidity: {{ weather.main.humidity }}%</p>
-                <p>Pressure {{ weather.main.pressure }}mb</p>
+        <div class="weather-item item">
+            <div class="weather-item__content">
+                <h2> {{ weather.name }} </h2>
+                <img v-bind:src="imgLink" alt="weather-icon" v-if="imgLink">
+                <h1 class="item__temperature"> {{ weather.main.temp | round }}°C</h1>
+                <div class="item__other-info">
+                    <p>Wind speed: {{ weather.wind.speed }}mph</p>
+                    <p>Humidity: {{ weather.main.humidity }}%</p>
+                    <p>Pressure {{ weather.main.pressure }}mb</p>
+                </div>
+            </div>
+            <div class="weather-item__remove-button">
+                <p>Remove</p>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
