@@ -33,19 +33,10 @@ body {
         transform: translate(8px, 8px);
         box-shadow: none;
 
-        .weather-item__remove-button {
-            opacity: 1;
-            background-color: #ff4d69;
-        }
+        //.weather-item__remove-button {
+        //    opacity: 1;
+        //}
     }
-}
-
-.weather-item__remove-button {
-    color: #fff;
-    padding: 7px;
-    border-radius: 2px;
-    transition: all 0.3s;
-    opacity: 0;
 }
 
 .logo__link:visited {

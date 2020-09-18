@@ -10,9 +10,9 @@
                     <p>Pressure {{ weather.main.pressure }}mb</p>
                 </div>
             </div>
-            <div class="weather-item__remove-button">
-                <p>Remove</p>
-            </div>
+<!--            <button class="weather-item__remove-button">-->
+<!--                Remove-->
+<!--            </button>-->
         </div>
 </template>
 
@@ -36,10 +36,27 @@
 
     .weather-item {
         display: grid;
+        /*justify-content: center;*/
         place-items: center;
         text-align: center;
         height: 300px;
     }
+
+    /*.weather-item__content {*/
+    /*    margin-top: 40px;*/
+    /*}*/
+
+    /*.weather-item__remove-button {*/
+    /*    color: #fff;*/
+    /*    background-color: #ff4d69;*/
+    /*    border-radius: 2px;*/
+    /*    transition: all 0.3s;*/
+    /*    opacity: 0;*/
+    /*    width: 70px;*/
+    /*    height: 30px;*/
+    /*    margin: 0 auto 15px auto;*/
+    /*    border: none;*/
+    /*}*/
 
     .item__other-info {
         margin-top: 20px;
