@@ -183,7 +183,12 @@
 
     @media screen and (max-width: 500px) {
         .content__default-wrapper {
-            grid-template-columns: repeat(auto-fill, 170px);
+            grid-template-columns: repeat(auto-fill, 135px);
+        }
+
+        .content__default-wrapper > div {
+            font-size: 10px;
+            height: 200px;
         }
 
         .content__obtained-info {
@@ -195,9 +200,15 @@
         }
     }
 
-    @media screen and (max-width: 430px) {
+    @media screen and (max-width: 350px) {
         .content__default-wrapper {
-            grid-template-columns: repeat(auto-fill, 210px);
+            grid-template-columns: repeat(auto-fill, 100px);
+        }
+
+        .content__default-wrapper > div {
+            font-size: 8px;
+            height: 160px;
         }
     }
+
 </style>
