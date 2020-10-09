@@ -14,18 +14,18 @@
 </template>
 
 <script>
-    export default {
-        name: "WeatherItem",
-        props: {
-            weather: Object,
-            imgLink: String
-        },
-        filters: {
-            round(value) {
-                return Math.round(value)
-            }
-        }
+export default {
+  name: 'WeatherItem',
+  props: {
+    weather: Object,
+    imgLink: String
+  },
+  filters: {
+    round (value) {
+      return Math.round(value)
     }
+  }
+}
 </script>
 
 <style scoped lang="scss">

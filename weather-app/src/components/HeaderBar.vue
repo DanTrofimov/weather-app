@@ -10,9 +10,9 @@
 </template>
 
 <script>
-    export default {
-        name: "HeaderBar",
-    }
+export default {
+  name: 'HeaderBar'
+}
 </script>
 
 <style scoped lang="scss">

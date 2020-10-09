@@ -13,20 +13,20 @@
 </template>
 
 <script>
-    export default {
-        name: "DetailedWeather",
-        props: {
-            weather: Object
-        },
-        filters: {
-            round(value) {
-                return Math.round(value)
-            },
-            toDate(value) {
-                return new Date(value*1000).toLocaleString("en-US")
-            }
-        }
+export default {
+  name: 'DetailedWeather',
+  props: {
+    weather: Object
+  },
+  filters: {
+    round (value) {
+      return Math.round(value)
+    },
+    toDate (value) {
+      return new Date(value * 1000).toLocaleString('en-US')
     }
+  }
+}
 </script>
 
 <style scoped>
