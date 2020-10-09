@@ -29,17 +29,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import "public/css/variables";
+@import "public/css/variables";
 
-    .weather-item {
-        display: grid;
-        place-items: center;
-        text-align: center;
-        height: 300px;
-        max-width: 210px;
-    }
+.weather-item {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    height: 300px;
+    max-width: 210px;
+}
 
-    .item__other-info {
-        margin-top: 10px;
-    }
+.item__other-info {
+    margin-top: 10px;
+}
 </style>

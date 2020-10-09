@@ -73,15 +73,14 @@ export default {
 @import "public/css/variables";
 
 * {
-      font-family: Consolas, sans-serif;
-      margin: 0;
-      padding: 0;
+    font-family: Consolas, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 #app {
-      transition: background-color 0.5s;
-      max-width: 750px;
-      margin: auto;
+    transition: background-color 0.5s;
+    max-width: 750px;
+    margin: auto;
 }
-
 </style>

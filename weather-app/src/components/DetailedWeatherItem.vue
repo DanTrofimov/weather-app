@@ -30,12 +30,12 @@ export default {
 </script>
 
 <style scoped>
-    .detailed-item {
-        display: grid;
-        place-items: center;
-        max-width: 300px;
-        padding: 20px;
-        line-height: 30px;
-        box-sizing: border-box;
-    }
+.detailed-item {
+    display: grid;
+    place-items: center;
+    max-width: 300px;
+    padding: 20px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
 </style>

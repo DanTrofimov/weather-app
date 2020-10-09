@@ -101,131 +101,130 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import "public/css/mixins";
-    .default-weather-content {
-        margin-bottom: 30px;
+@import "public/css/mixins";
+.default-weather-content {
+    margin-bottom: 30px;
+}
+
+.content__default-wrapper {
+    transition: all 0.5s;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, 210px);
+    margin-top: 50px;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content__obtained-info {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.content__suggestion {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 0 30px 0 30px;
+    margin-bottom: 20px;
+}
+
+.content__search {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 0 50px 0 70px;
+}
+
+.search__bar {
+    width: 300px;
+    height: 40px;
+    padding: 0 10px 0 10px;
+    font-size: 18px;
+}
+
+.search__icon {
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgb(0,0,0,0);
+    border: none;
+}
+
+.content__custom-weather-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px 0 20px;
+}
+
+.custom__weather-item {
+    width: 210px;
+}
+
+.unknown-city {
+    height: 10vh;
+    display: grid;
+    place-items: center;
+}
+
+@media screen and (max-width: 540px) {
+    .custom {
+        flex-direction: column;
     }
 
-    .content__default-wrapper {
-        transition: all 0.5s;
-        display: grid;
-        gap: 30px;
-        grid-template-columns: repeat(auto-fill, 210px);
-        margin-top: 50px;
-        justify-content: center;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .content__obtained-info {
-        text-align: center;
-        margin: 30px auto;
-    }
-
-    .content__suggestion {
-        font-size: 1.5em;
-        text-align: center;
-        padding: 0 30px 0 30px;
-        margin-bottom: 20px;
-    }
-
-    .content__search {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 30px;
-        padding: 0 50px 0 70px;
+    .custom__weather-item, .custom__detailed-weather-item {
+        align-self: center;
     }
 
     .search__bar {
-        width: 300px;
-        height: 40px;
-        padding: 0 10px 0 10px;
-        font-size: 18px;
+        width: 200px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .content__default-wrapper {
+        grid-template-columns: repeat(auto-fill, 135px);
     }
 
-    .search__icon {
-        font-size: 20px;
-        border-radius: 10px;
-        background-color: rgb(0,0,0,0);
-        border: none;
+    .content__default-wrapper > div {
+        font-size: 12px;
+        height: 200px;
     }
 
-    .content__custom-weather-info {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        padding: 0 20px 0 20px;
-    }
-
-    .custom__weather-item {
+    .content__obtained-info {
         width: 210px;
     }
 
-    .unknown-city {
-        height: 10vh;
-        display: grid;
-        place-items: center;
+    .content__suggestion {
+        font-size: 1em;
     }
 
-    @media screen and (max-width: 540px) {
-        .custom {
-            flex-direction: column;
-        }
-
-        .custom__weather-item, .custom__detailed-weather-item {
-            align-self: center;
-        }
-
-        .search__bar {
-            width: 200px;
-            font-size: 15px;
-        }
+    .custom__detailed-weather-item, .custom__weather-item {
+        font-size: 15px;
     }
 
-    @media screen and (max-width: 500px) {
-        .content__default-wrapper {
-            grid-template-columns: repeat(auto-fill, 135px);
-        }
-
-        .content__default-wrapper > div {
-            font-size: 12px;
-            height: 200px;
-        }
-
-        .content__obtained-info {
-            width: 210px;
-        }
-
-        .content__suggestion {
-            font-size: 1em;
-        }
-
-        .custom__detailed-weather-item, .custom__weather-item {
-            font-size: 15px;
-        }
-
-        .custom__detailed-weather-item {
-            width: 220px;
-            height: 300px;
-            line-height: 20px;
-        }
-
-        .custom__weather-item {
-            width: 220px;
-            height: 210px;
-        }
+    .custom__detailed-weather-item {
+        width: 220px;
+        height: 300px;
+        line-height: 20px;
     }
 
-    @media screen and (max-width: 360px) {
-        .content__default-wrapper {
-            grid-template-columns: repeat(auto-fill, 120px);
-        }
+    .custom__weather-item {
+        width: 220px;
+        height: 210px;
+    }
+}
 
-        .content__default-wrapper > div {
-            font-size: 10px;
-            height: 160px;
-        }
+@media screen and (max-width: 360px) {
+    .content__default-wrapper {
+        grid-template-columns: repeat(auto-fill, 120px);
     }
 
+    .content__default-wrapper > div {
+        font-size: 10px;
+        height: 160px;
+    }
+}
 </style>
