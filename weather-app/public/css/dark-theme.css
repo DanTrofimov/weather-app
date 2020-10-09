@@ -44,3 +44,7 @@ body {
 .search__bar::placeholder {
   color: white;
 }
+
+.search__icon {
+  border: 2px white solid;
+}

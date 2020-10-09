@@ -113,8 +113,7 @@ export default {
     grid-template-columns: repeat(auto-fill, 210px);
     margin-top: 50px;
     justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px 0 20px;
 }
 
 .content__obtained-info {
@@ -134,7 +133,7 @@ export default {
     justify-content: center;
     gap: 10px;
     margin-bottom: 30px;
-    padding: 0 50px 0 70px;
+    padding: 0 50px 0 50px;
 }
 
 .search__bar {
@@ -146,9 +145,8 @@ export default {
 
 .search__icon {
     font-size: 20px;
-    border-radius: 10px;
     background-color: rgb(0,0,0,0);
-    border: none;
+    padding: 5px;
 }
 
 .content__custom-weather-info {
