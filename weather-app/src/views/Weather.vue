@@ -12,6 +12,7 @@
         <p class="content__obtained-info" v-if="getObtainedDate != 'undefined'">
             Obtained {{ obtainedDate }}
         </p>
+
         <p v-else class="content__obtained-info">
             Error to obtain
         </p>
@@ -19,6 +20,7 @@
         <h3 class="content__suggestion">
             Try to find out weather forecast in your city:
         </h3>
+
         <div class="content__search search">
             <label>
                 <input
@@ -101,7 +103,7 @@
 <style scoped lang="scss">
     @import "public/css/mixins";
     .default-weather-content {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     .content__default-wrapper {
