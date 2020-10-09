@@ -149,6 +149,8 @@ export default {
     padding: 5px;
 }
 
+/* Im here 0_o */
+
 .content__custom-weather-info {
     display: flex;
     justify-content: center;
