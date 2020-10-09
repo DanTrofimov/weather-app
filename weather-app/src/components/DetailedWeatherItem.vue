@@ -36,5 +36,6 @@
         max-width: 300px;
         padding: 20px;
         line-height: 30px;
+        box-sizing: border-box;
     }
 </style>

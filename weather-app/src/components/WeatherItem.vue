@@ -40,6 +40,6 @@
     }
 
     .item__other-info {
-        margin-top: 20px;
+        margin-top: 10px;
     }
 </style>
