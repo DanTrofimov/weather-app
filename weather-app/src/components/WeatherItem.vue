@@ -29,17 +29,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "public/css/variables";
+@import "public/css/mixins";
 
 .weather-item {
     display: grid;
     place-items: center;
     text-align: center;
-    height: 300px;
-    max-width: 210px;
+    @include weather-item-styles()
 }
 
-.item__other-info {
+.weather-item__content {
+  .item__other-info {
     margin-top: 10px;
+  }
 }
 </style>

@@ -2,6 +2,7 @@
     <div class="default-weather-content content">
         <div class="content__default-wrapper">
             <WeatherItem
+                    class="default__item"
                     v-for="weather in getWeather.list"
                     v-bind:key="weather.name"
                     v-bind:weather="weather"
@@ -102,64 +103,76 @@ export default {
 
 <style scoped lang="scss">
 @import "public/css/mixins";
-.default-weather-content {
-    margin-bottom: 30px;
+
+.content {
+  margin-bottom: 30px;
 }
 
 .content__default-wrapper {
-    transition: all 0.5s;
-    display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(auto-fill, 210px);
-    margin-top: 50px;
-    justify-content: center;
-    padding: 0 20px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $weather-item-width_default);
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  padding: 0 20px 0 20px;
+  transition: all 0.5s;
+}
+
+.content {
+  .content__obtained-info {
+    margin: 30px auto;
+  }
 }
 
 .content__obtained-info {
-    text-align: center;
-    margin: 30px auto;
+  text-align: center;
 }
 
 .content__suggestion {
-    font-size: 1.5em;
-    text-align: center;
-    padding: 0 30px 0 30px;
-    margin-bottom: 20px;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 0 30px 0 30px;
+}
+
+.content {
+  .content__suggestion {
+    margin: 0 auto 20px auto;
+  }
 }
 
 .content__search {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 50px 0 50px;
+}
+
+.content {
+  .content__search {
     margin-bottom: 30px;
-    padding: 0 50px 0 50px;
+  }
+}
+
+.content__custom-weather-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 30px 0 30px;
 }
 
 .search__bar {
-    width: 300px;
-    height: 40px;
-    padding: 0 10px 0 10px;
-    font-size: 18px;
-}
+   padding: 0 10px 0 10px;
+   @include search-bar-styles($search-height_default, $search-width_default, $search-font-size_default)
+ }
 
 .search__icon {
-    font-size: 20px;
-    background-color: rgb(0,0,0,0);
-    padding: 5px;
-}
-
-/* Im here 0_o */
-
-.content__custom-weather-info {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 0 20px 0 20px;
+  font-size: 20px;
+  background-color: rgb(0,0,0,0);
+  padding: 5px;
 }
 
 .custom__weather-item {
-    width: 210px;
+  width: $weather-item-width_default;
 }
 
 .unknown-city {
@@ -168,63 +181,61 @@ export default {
     place-items: center;
 }
 
-@media screen and (max-width: 540px) {
+@media (max-width: 540px) {
+    .search__bar {
+      @include search-bar-styles($search-height_default, $search-width_medium, $search-font-size_medium)
+    }
+
     .custom {
-        flex-direction: column;
+      flex-direction: column;
     }
 
     .custom__weather-item, .custom__detailed-weather-item {
-        align-self: center;
-    }
-
-    .search__bar {
-        width: 200px;
-        font-size: 15px;
+      align-self: center;
     }
 }
 
-@media screen and (max-width: 500px) {
-    .content__default-wrapper {
-        grid-template-columns: repeat(auto-fill, 135px);
-    }
+@media (max-width: 500px) {
 
-    .content__default-wrapper > div {
-        font-size: 12px;
-        height: 200px;
+    .content__default-wrapper {
+      grid-template-columns: repeat(auto-fill, 140px);
+
+      .default__item {
+        @include weather-item-styles($weather-item-height_medium, $weather-item-width_medium, $font-size_medium)
+      }
+
     }
 
     .content__obtained-info {
-        width: 210px;
+      width: 210px;
     }
 
     .content__suggestion {
-        font-size: 1em;
+      font-size: 1em;
+      max-width: 300px;
     }
 
-    .custom__detailed-weather-item, .custom__weather-item {
-        font-size: 15px;
+    .search__bar {
+      font-size: 12px;
     }
 
     .custom__detailed-weather-item {
-        width: 220px;
-        height: 300px;
-        line-height: 20px;
+      line-height: 20px;
+      @include weather-item-styles(300px, 220px, 15px)
     }
 
     .custom__weather-item {
-        width: 220px;
-        height: 210px;
+      @include weather-item-styles(210px, 220px, 15px)
     }
 }
 
 @media screen and (max-width: 360px) {
     .content__default-wrapper {
-        grid-template-columns: repeat(auto-fill, 120px);
-    }
+      grid-template-columns: repeat(auto-fill, 120px);
 
-    .content__default-wrapper > div {
-        font-size: 10px;
-        height: 160px;
+      .default__item {
+        @include weather-item-styles($weather-item-height_small, $weather-item-width_small, $font-size_small)
+      }
     }
 }
 </style>
