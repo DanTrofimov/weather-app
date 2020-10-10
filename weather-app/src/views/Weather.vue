@@ -11,7 +11,7 @@
         </div>
 
         <p class="content__obtained-info" v-if="getObtainedDate != 'undefined'">
-            Obtained {{ obtainedDate }}
+            Obtained {{ getObtainedDate | toDate }}
         </p>
 
         <p v-else class="content__obtained-info">
@@ -77,9 +77,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getWeather', 'getCustomWeather', 'getErrorStatus', 'getObtainedDate']),
-    obtainedDate () {
-      return new Date(this.getObtainedDate).toLocaleString('en-US')
+    ...mapGetters(['getWeather', 'getCustomWeather', 'getErrorStatus', 'getObtainedDate'])
+  },
+  filters: {
+    toDate (value) {
+      return value.toLocaleString('en-US')
     }
   },
   methods: {

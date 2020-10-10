@@ -51,13 +51,13 @@ export default {
       state.weatherError = error
     },
     updateDate (state, date) {
-      state.obtainedDate = date
+      state.obtainedDate.setTime(date)
     }
   },
   state: {
     weather: [],
     customWeather: {},
-    obtainedDate: '',
+    obtainedDate: new Date(),
     weatherError: false
   },
   getters: {

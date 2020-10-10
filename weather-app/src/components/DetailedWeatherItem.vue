@@ -22,6 +22,7 @@ export default {
     round (value) {
       return Math.round(value)
     },
+    // u can optimize that, check vuex -> weather -> obtainedDate
     toDate (value) {
       return new Date(value * 1000).toLocaleString('en-US')
     }

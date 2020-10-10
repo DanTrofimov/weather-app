@@ -48,8 +48,6 @@ export default {
 
   mounted () {
     this.themeSwitchLocal(localStorage.getItem('theme'))
-    console.log(document.styleSheets)
-    // 0 -light, 1 -dark
   }
 }
 </script>
