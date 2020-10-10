@@ -203,7 +203,6 @@ export default {
       .default__item {
         @include weather-item-styles($weather-item-height_medium, $weather-item-width_medium, $font-size_medium)
       }
-
     }
 
     .content__obtained-info {

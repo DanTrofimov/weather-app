@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <HeaderBar @changeTheme="themeChanger"/>
+        <HeaderBar @changeTheme="changeTheme"/>
         <router-view/>
     </div>
 </template>
@@ -14,7 +14,15 @@ export default {
     HeaderBar
   },
   methods: {
-    themeChanger () {
+    themeSwitchLocal (localStoreTheme) {
+      if (localStoreTheme === 'dark') {
+        document.styleSheets[1].disabled = true
+      } else if (localStoreTheme === 'light') {
+        document.styleSheets[0].disabled = true
+      }
+    },
+
+    changeTheme () {
       switch (localStorage.getItem('theme')) {
         case 'dark':
           localStorage.setItem('theme', 'light')
@@ -25,40 +33,17 @@ export default {
         default:
           localStorage.setItem('theme', 'light')
       }
-      this.themeSwitchLocal(localStorage.getItem('theme'))
-    },
-
-    themeSwitchLocal (localStoreTheme) {
-      if (localStoreTheme === 'dark') {
-        this.addDarkTheme()
-      } else if (localStoreTheme === 'light') {
-        this.addLightTheme()
-      }
-    },
-
-    addDarkTheme () {
-      const darkThemeLinkEl = document.createElement('link')
-      darkThemeLinkEl.setAttribute('rel', 'stylesheet')
-      darkThemeLinkEl.setAttribute('href', 'css/dark-theme.css')
-      darkThemeLinkEl.setAttribute('id', 'dark-theme-style')
-
-      const docHead = document.querySelector('head')
-      docHead.append(darkThemeLinkEl)
-    },
-
-    addLightTheme () {
-      const darkThemeLinkEl = document.querySelector('#dark-theme-style')
-      if (darkThemeLinkEl) {
-        const parentNode = darkThemeLinkEl.parentNode
-        parentNode.removeChild(darkThemeLinkEl)
-
-        const lightThemeLinkEl = document.createElement('link')
-        darkThemeLinkEl.setAttribute('rel', 'stylesheet')
-        darkThemeLinkEl.setAttribute('href', 'css/light-theme.css')
-        darkThemeLinkEl.setAttribute('id', 'light-theme-style')
-
-        const docHead = document.querySelector('head')
-        docHead.append(lightThemeLinkEl)
+      switch (localStorage.getItem('theme')) {
+        case 'light':
+          document.styleSheets[1].disabled = false
+          document.styleSheets[0].disabled = true
+          break
+        case 'dark':
+          document.styleSheets[1].disabled = true
+          document.styleSheets[0].disabled = false
+          break
+        default:
+          throw new Error('Get unknown theme value')
       }
     }
   },
