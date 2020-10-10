@@ -16,9 +16,9 @@ export default {
   methods: {
     themeSwitchLocal (localStoreTheme) {
       if (localStoreTheme === 'dark') {
-        document.styleSheets[1].disabled = true
-      } else if (localStoreTheme === 'light') {
         document.styleSheets[0].disabled = true
+      } else if (localStoreTheme === 'light') {
+        document.styleSheets[1].disabled = true
       }
     },
 
@@ -35,21 +35,21 @@ export default {
       }
       switch (localStorage.getItem('theme')) {
         case 'light':
-          document.styleSheets[1].disabled = false
-          document.styleSheets[0].disabled = true
+          document.styleSheets[0].disabled = false
+          document.styleSheets[1].disabled = true
           break
         case 'dark':
-          document.styleSheets[1].disabled = true
-          document.styleSheets[0].disabled = false
+          document.styleSheets[0].disabled = true
+          document.styleSheets[1].disabled = false
           break
-        default:
-          throw new Error('Get unknown theme value')
       }
     }
   },
 
   mounted () {
     this.themeSwitchLocal(localStorage.getItem('theme'))
+    console.log(document.styleSheets)
+    // 0 -light, 1 -dark
   }
 }
 </script>
