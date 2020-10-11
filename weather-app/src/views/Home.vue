@@ -17,49 +17,49 @@
 </template>
 
 <script>
-    export default {
-        name: "Home",
-    }
+export default {
+  name: 'Home'
+}
 </script>
 
 <style scoped lang="scss">
-    @import "public/css/variables";
+@import "public/css/variables";
 
-    .wrapper {
-        display: grid;
-        place-items: center;
-        height: 70vh;
-        max-width: 500px;
-        text-align: center;
-        margin: auto;
-        padding-right: 20px;
-        padding-left: 20px;
+.wrapper {
+    display: grid;
+    place-items: center;
+    height: 70vh;
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+    padding-right: 20px;
+    padding-left: 20px;
 
-        .wrapper__page-title {
-            margin-bottom: 10px;
-        }
-
-        .wrapper__description {
-            margin-bottom: 25px;
-        }
+    .wrapper__page-title {
+        margin-bottom: 10px;
     }
 
     .wrapper__description {
-        font-size: 20px;
+        margin-bottom: 25px;
     }
+}
 
-    .wrapper__navItem {
-        margin: auto;
-        max-width: 200px;
-        font-weight: 600;
-        font-size: 30px;
-        -webkit-user-select: none;   /* Chrome/Safari/Opera */
-        -moz-user-select: none;      /* Firefox */
-        -ms-user-select: none;       /* Internet Explorer/Edge */
-        padding: 10px;
+.wrapper__description {
+    font-size: 20px;
+}
 
-        .navItem__link {
-            text-decoration: none;
-        }
+.wrapper__navItem {
+    margin: auto;
+    max-width: 200px;
+    font-weight: 600;
+    font-size: 30px;
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    padding: 10px;
+
+    .navItem__link {
+        text-decoration: none;
     }
+}
 </style>

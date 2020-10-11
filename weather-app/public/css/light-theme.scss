@@ -32,6 +32,10 @@ body {
     &:hover {
         transform: translate(8px, 8px);
         box-shadow: none;
+
+        //.weather-item__remove-button {
+        //    opacity: 1;
+        //}
     }
 }
 
@@ -47,4 +51,8 @@ body {
     &::placeholder {
         color: $text-color_light;
     }
+}
+
+.search__icon {
+    border: 2px $text-color_light solid;
 }

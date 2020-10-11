@@ -1,10 +1,13 @@
-@mixin gridStyles($cols, $margin) {
-  float: left;
-  margin-right: $margin;
-  margin-bottom: $margin;
-  width: ((100% - (($cols) * $margin)) / $cols);
+@import "variables";
 
-  &:nth-child(#{$cols}n) {
-    margin-right: 0;
-  }
+@mixin weather-item-styles($height: $weather-item-height_default, $width: $weather-item-width_default, $font-size: $font-size_default) {
+  height: $height;
+  max-width: $width;
+  font-size: $font-size;
+}
+
+@mixin search-bar-styles($height, $width, $font-size) {
+  height: $height;
+  width: $width;
+  font-size: $font-size;
 }

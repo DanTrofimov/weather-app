@@ -41,3 +41,7 @@ body {
 .search__bar::placeholder {
   color: black;
 }
+
+.search__icon {
+  border: 2px black solid;
+}
