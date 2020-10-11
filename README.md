@@ -7,7 +7,7 @@ In this app I used https://openweathermap.org/api to get some info about current
 
 ### App has a several themes and adaptive layout:
 
-![adaptive](https://github.com/chackydude/weather-app/raw/master/weather-app/public/gifs/adaptive.gif)
+![adaptive](https://github.com/chackydude/weather-app/raw/master/weather-app/public/gifs/adaptive-2.gif)
 
 ### About API:
 
