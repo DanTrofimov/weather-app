@@ -1,7 +1,7 @@
 # Web weather SPA on Vue.js :partly_sunny:
 
 ### About:
-In this app I used https://openweathermap.org/api to get some info about current temperature, wind speed, pressure etc. You can get information about weather in three different  default cities. Also you can get more information about specific city.
+In [this app](https://vue--spa.herokuapp.com) I used https://openweathermap.org/api to get some info about current temperature, wind speed, pressure etc. You can get information about weather in three different  default cities. Also you can get more information about specific city.
 
 ![example](https://github.com/chackydude/weather-app/raw/master/weather-app/public/gifs/custom_weather.gif)
 
