@@ -20,4 +20,4 @@ If [API](https://openweathermap.org/api) requests doesn't work, you can try to u
 * JS / HTML5 / CSS3 + SCSS 
 * Axios 0.21
 * VueJS 2.6.11
-* Vuex 3.5.1
+* Vuex 3.5.1 
