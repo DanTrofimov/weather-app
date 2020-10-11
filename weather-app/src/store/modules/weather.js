@@ -8,8 +8,8 @@ export default {
         .get(`${process.env.VUE_APP_BASE_URL}group?id=${cities}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
         .then(response => {
           ctx.commit('updateWeather', response.data)
-          const payload = { date: response.data.list[0].dt * 1000, field: 'obtainedDate' }
-          ctx.commit('updateDate', payload)
+          const obtainedDatePayload = { date: response.data.list[0].dt * 1000, field: 'obtainedDate' }
+          ctx.commit('updateDate', obtainedDatePayload)
         })
         .catch(err => {
           if (err.response) {
