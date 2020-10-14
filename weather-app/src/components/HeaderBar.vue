@@ -23,11 +23,8 @@ export default {
     justify-content: space-between;
     height: 30px;
     max-width: 700px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 25px;
-    padding-right: 25px;
+    margin: 20px auto auto auto;
+    padding: 0 25px 0 25px;
 }
 
 .header-wrapper__logo {

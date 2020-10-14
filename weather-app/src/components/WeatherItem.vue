@@ -32,9 +32,8 @@ export default {
 @import "public/css/mixins";
 
 .weather-item {
-    display: grid;
-    place-items: center;
     text-align: center;
+    @include center-styles();
     @include weather-item-styles()
 }
 

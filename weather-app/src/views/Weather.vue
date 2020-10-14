@@ -70,9 +70,9 @@ export default {
         { name: 'Boston', id: 4930956 },
         { name: 'Kazan', id: 551487 },
         { name: 'Moscow', id: 524901 }
-        // {name: 'London', id: 2643743},
-        // {name: 'New York', id: 5128581},
-        // {name: 'Minsk', id: 625144},
+        // { name: 'London', id: 2643743 },
+        // { name: 'New York', id: 5128581 },
+        // { name: 'Minsk', id: 625144 }
       ]
     }
   },
@@ -108,6 +108,10 @@ export default {
 
 .content {
   margin-bottom: 30px;
+
+  .content__default-wrapper {
+    margin-top: 40px;
+  }
 }
 
 .content__default-wrapper {
@@ -115,7 +119,6 @@ export default {
   grid-template-columns: repeat(auto-fill, $weather-item-width_default);
   justify-content: center;
   gap: 30px;
-  margin-top: 50px;
   padding: 0 20px 0 20px;
   transition: all 0.5s;
 }
@@ -151,15 +154,18 @@ export default {
 
 .content {
   .content__search {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 }
 
 .content__custom-weather-info {
   display: flex;
   justify-content: center;
-  gap: 30px;
   padding: 0 30px 0 30px;
+
+  div {
+    margin: 15px;
+  }
 }
 
 .search__bar {
@@ -179,8 +185,7 @@ export default {
 
 .unknown-city {
     height: 10vh;
-    display: grid;
-    place-items: center;
+    @include center-styles();
 }
 
 @media (max-width: 540px) {
@@ -200,7 +205,7 @@ export default {
 @media (max-width: 500px) {
 
     .content__default-wrapper {
-      grid-template-columns: repeat(auto-fill, 140px);
+      grid-template-columns: repeat(auto-fill, $weather-item-width_medium);
 
       .default__item {
         @include weather-item-styles($weather-item-height_medium, $weather-item-width_medium, $font-size_medium)
@@ -230,9 +235,9 @@ export default {
     }
 }
 
-@media screen and (max-width: 360px) {
+@media (max-width: 360px) {
     .content__default-wrapper {
-      grid-template-columns: repeat(auto-fill, 120px);
+      grid-template-columns: repeat(auto-fill, $weather-item-width_small);
 
       .default__item {
         @include weather-item-styles($weather-item-height_small, $weather-item-width_small, $font-size_small)

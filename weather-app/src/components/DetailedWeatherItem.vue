@@ -34,10 +34,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "public/css/mixins.scss";
+
 .detailed-item {
-    display: grid;
-    place-items: center;
+    @include center-styles();
     max-width: 300px;
     padding: 20px;
     line-height: 30px;
