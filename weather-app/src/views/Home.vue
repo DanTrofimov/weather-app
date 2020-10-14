@@ -26,8 +26,6 @@ export default {
 @import "public/css/mixins.scss";
 
 .wrapper {
-    /*display: grid;*/
-    /*place-items: center;*/
     @include center-styles();
     height: 70vh;
     max-width: 500px;

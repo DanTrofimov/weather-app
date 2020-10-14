@@ -69,10 +69,10 @@ export default {
       cities: [
         { name: 'Boston', id: 4930956 },
         { name: 'Kazan', id: 551487 },
-        { name: 'Moscow', id: 524901 }
-        // {name: 'London', id: 2643743},
-        // {name: 'New York', id: 5128581},
-        // {name: 'Minsk', id: 625144},
+        { name: 'Moscow', id: 524901 },
+        // { name: 'London', id: 2643743 },
+        // { name: 'New York', id: 5128581 },
+        // { name: 'Minsk', id: 625144 }
       ]
     }
   },

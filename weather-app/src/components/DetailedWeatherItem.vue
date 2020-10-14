@@ -38,8 +38,6 @@ export default {
 @import "public/css/mixins.scss";
 
 .detailed-item {
-    /*display: grid;*/
-    /*place-items: center;*/
     @include center-styles();
     max-width: 300px;
     padding: 20px;
