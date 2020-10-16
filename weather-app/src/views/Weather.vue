@@ -5,7 +5,11 @@
                     class="default__item"
                     v-for="weather in getWeather.list"
                     v-bind:key="weather.name"
-                    v-bind:weather="weather"
+                    v-bind:name="weather.name"
+                    v-bind:temperature="weather.main.temp"
+                    v-bind:wind="weather.wind.speed"
+                    v-bind:humidity="weather.main.humidity"
+                    v-bind:pressure="weather.main.pressure"
                     v-bind:img-link="imgLink + weather.weather[0].icon + '.png'"
             />
         </div>
@@ -41,11 +45,19 @@
         <div class="content__custom-weather-info custom" v-if="typeof getCustomWeather.name != 'undefined' && !getErrorStatus">
             <WeatherItem
                     class="custom__weather-item"
-                    v-bind:weather="getCustomWeather"
+                    v-bind:name="getCustomWeather.name"
+                    v-bind:temperature="getCustomWeather.main.temp"
+                    v-bind:wind="getCustomWeather.wind.speed"
+                    v-bind:humidity="getCustomWeather.main.humidity"
+                    v-bind:pressure="getCustomWeather.main.pressure"
+                    v-bind:img-link="imgLink + getCustomWeather.weather[0].icon + '.png'"
             />
             <DetailedWeather
                     class="custom__detailed-weather-item"
-                    v-bind:weather="getCustomWeather"
+                    v-bind:temp-max="getCustomWeather.main.temp_max"
+                    v-bind:temp-min="getCustomWeather.main.temp_min"
+                    v-bind:temp-feels="getCustomWeather.main.feels_like"
+                    v-bind:wind-degree="getCustomWeather.wind.deg"
             />
         </div>
         <div v-if="getErrorStatus" class="unknown-city">
@@ -65,6 +77,7 @@ export default {
   data () {
     return {
       query: '',
+      date: new Date(),
       imgLink: process.env.VUE_APP_GET_IMG_URL,
       cities: [
         { name: 'Boston', id: 4930956 },
