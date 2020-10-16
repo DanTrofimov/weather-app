@@ -64,8 +64,8 @@ export default {
   state: {
     weather: [],
     customWeather: {},
-    obtainedDate: new Date(),
     weatherError: false,
+    obtainedDate: new Date(),
     sunrise: new Date(),
     sunset: new Date(),
     customObtained: new Date()

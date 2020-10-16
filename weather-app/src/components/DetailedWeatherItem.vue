@@ -1,10 +1,10 @@
 <template>
     <div class="weather-item detailed-item">
         <div>
-            <div class="detailed-item__max-temp">Max temperature is {{ weather.main.temp_max | round}}°C</div>
-            <div class="detailed-item__min-temp">Min temperature is {{ weather.main.temp_min | round}}°C</div>
-            <div class="detailed-item__feels-like">Feels like {{ weather.main.feels_like | round}}°C</div>
-            <div class="detailed-item__wind-direction">Wind degree: {{weather.wind.deg | round}}</div>
+            <div class="detailed-item__max-temp">Max temperature is {{ tempMax | round}}°C</div>
+            <div class="detailed-item__min-temp">Min temperature is {{ tempMin | round}}°C</div>
+            <div class="detailed-item__feels-like">Feels like {{ tempFeels | round}}°C</div>
+            <div class="detailed-item__wind-direction">Wind degree: {{ windDegree | round}}</div>
             <div class="detailed-item__sunrise">Sunrise: {{ getSunrise | toDate}}</div>
             <div class="detailed-item__sunset">Sunset: {{ getSunset | toDate}}</div>
             <div class="detailed-item__sunrise">Obtained: {{ getCustomObtained | toDate}}</div>
@@ -18,7 +18,10 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'DetailedWeather',
   props: {
-    weather: Object
+    tempMax: Number,
+    tempMin: Number,
+    tempFeels: Number,
+    windDegree: Number
   },
   computed: {
     ...mapGetters(['getSunset', 'getSunrise', 'getCustomObtained'])
