@@ -55,6 +55,13 @@ export default {
 <style lang="scss">
 @import "public/css/variables";
 
+@font-face {
+  font-family: 'Consolas';
+  src: url('../public/fonts/Consolas.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
     font-family: Consolas, sans-serif;
     margin: 0;
