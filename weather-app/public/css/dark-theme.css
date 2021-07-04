@@ -15,10 +15,10 @@ body {
   box-shadow: none;
 }
 
-.navItem__link {
+.navItem__link, .logo__link {
   color: white;
 }
-.navItem__link:visited {
+.navItem__link:visited, .logo__link:visited {
   color: white;
 }
 

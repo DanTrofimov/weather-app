@@ -17,7 +17,7 @@ body {
     }
 }
 
-.navItem__link {
+.navItem__link, .logo__link {
     color: $text-color_light;
 
     &:visited {
