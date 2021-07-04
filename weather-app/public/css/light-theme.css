@@ -14,6 +14,9 @@ body {
   box-shadow: none;
 }
 
+.navItem__link {
+  color: black;
+}
 .navItem__link:visited {
   color: black;
 }

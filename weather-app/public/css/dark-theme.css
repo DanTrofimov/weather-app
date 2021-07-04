@@ -7,6 +7,7 @@ body {
 .header-wrapper__theme-changer, .wrapper__navItem {
   border: 1px white solid;
   box-shadow: 5px 5px white;
+  color: white;
 }
 .header-wrapper__theme-changer:active, .wrapper__navItem:active {
   transition: all 0.1s;
@@ -14,6 +15,9 @@ body {
   box-shadow: none;
 }
 
+.navItem__link {
+  color: white;
+}
 .navItem__link:visited {
   color: white;
 }

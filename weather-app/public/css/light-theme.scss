@@ -18,6 +18,8 @@ body {
 }
 
 .navItem__link {
+    color: $text-color_light;
+
     &:visited {
         color: $text-color_light;
     }

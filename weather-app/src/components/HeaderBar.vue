@@ -3,9 +3,9 @@
         <p class="header-wrapper__logo logo">
             <router-link to="/" class="logo__link">weather-app</router-link>
         </p>
-        <p class="header-wrapper__theme-changer" v-on:click="$emit('changeTheme')">
+        <button tabindex=0 class="header-wrapper__theme-changer" v-on:click="$emit('changeTheme')">
             change theme
-        </p>
+        </button>
     </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
     -ms-user-select: none;       /* Internet Explorer/Edge */
     padding: 5px;
     background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 360px) {

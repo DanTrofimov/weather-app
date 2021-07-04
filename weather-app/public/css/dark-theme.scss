@@ -9,6 +9,7 @@ body {
 .header-wrapper__theme-changer, .wrapper__navItem {
     border: 1px $text-color_dark solid;
     box-shadow: 5px 5px $text-color_dark;
+    color: $text-color_dark;
 
     &:active {
         transition: all 0.1s;
@@ -18,6 +19,8 @@ body {
 }
 
 .navItem__link {
+    color: $text-color_dark;
+
     &:visited {
         color: $text-color_dark;
     }
