@@ -53,8 +53,18 @@ body {
     &::placeholder {
         color: $text-color_light;
     }
+
+    &:focus {
+        outline: 2px $text-color_light solid;
+        outline-offset: 4px;
+    }
 }
 
 .search__icon {
     border: 2px $text-color_light solid;
+
+    &:focus {
+        outline: 2px $text-color_light solid;
+        outline-offset: 4px;
+    }
 }

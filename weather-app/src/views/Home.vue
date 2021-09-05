@@ -4,9 +4,9 @@
             <h1 class="wrapper__page-title">
                 HomePage
             </h1>
-            <h2 class="wrapper__description">
+            <p class="wrapper__description">
                 Vue weather web-application ⛅. If you want to check application press "Get Started".
-            </h2>
+            </p>
             <p class="wrapper__navItem navItem">
                 <router-link to="/default" class="navItem__link">
                     GET STARTED
@@ -44,6 +44,7 @@ export default {
 }
 
 .wrapper__description {
+    font-weight: bold;
     font-size: 20px;
 }
 
@@ -59,6 +60,10 @@ export default {
 
     .navItem__link {
         text-decoration: none;
+    }
+
+    .navItem__link:focus {
+        outline-offset: 12px;
     }
 }
 </style>

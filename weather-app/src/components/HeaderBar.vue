@@ -39,6 +39,10 @@ export default {
     text-decoration: none;
 }
 
+.logo__link:focus {
+    outline-offset: 5px;
+}
+
 .header-wrapper__theme-changer {
     font-weight: 600;
     -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -47,6 +51,10 @@ export default {
     padding: 5px;
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
+}
+
+.header-wrapper__theme-changer:focus {
+    outline-offset: 9px;
 }
 
 @media screen and (max-width: 360px) {

@@ -1,13 +1,13 @@
 <template>
     <div class="weather-item detailed-item">
         <div>
-            <div class="detailed-item__max-temp">Max temperature is {{ tempMax | round}}°C</div>
-            <div class="detailed-item__min-temp">Min temperature is {{ tempMin | round}}°C</div>
-            <div class="detailed-item__feels-like">Feels like {{ tempFeels | round}}°C</div>
-            <div class="detailed-item__wind-direction">Wind degree: {{ windDegree | round}}</div>
-            <div class="detailed-item__sunrise">Sunrise: {{ getSunrise | toDate}}</div>
-            <div class="detailed-item__sunset">Sunset: {{ getSunset | toDate}}</div>
-            <div class="detailed-item__sunrise">Obtained: {{ getCustomObtained | toDate}}</div>
+            <p class="detailed-item__max-temp">Max temperature is {{ tempMax | round}}°C</p>
+            <p class="detailed-item__feels-like">Feels like {{ tempFeels | round}}°C</p>
+            <p class="detailed-item__min-temp">Min temperature is {{ tempMin | round}}°C</p>
+            <p class="detailed-item__wind-direction">Wind degree: {{ windDegree | round}}</p>
+            <p class="detailed-item__sunrise">Sunrise: {{ getSunrise | toDate}}</p>
+            <p class="detailed-item__sunset">Sunset: {{ getSunset | toDate}}</p>
+            <p class="detailed-item__sunrise">Obtained: {{ getCustomObtained | toDate}}</p>
         </div>
     </div>
 </template>
