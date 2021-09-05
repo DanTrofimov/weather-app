@@ -1,0 +1,70 @@
+@import "variables";
+
+body {
+    transition: background-color 0.5s ease;
+    color: $text-color_light;
+    background-color: $background-color_light;
+}
+
+.header-wrapper__theme-changer, .wrapper__navItem {
+    border: 1px $text-color_light solid;
+    box-shadow: 5px 5px $text-color_light;
+
+    &:active {
+        transition: all 0.1s;
+        transform: translate(5px, 5px);
+        box-shadow: none;
+    }
+}
+
+.navItem__link, .logo__link {
+    color: $text-color_light;
+
+    &:visited {
+        color: $text-color_light;
+    }
+}
+
+.weather-item {
+    color: $text-color_light;
+    border: 2px $text-color_light solid;
+    box-shadow: 8px 8px $text-color_light;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: translate(8px, 8px);
+        box-shadow: none;
+
+        //.weather-item__remove-button {
+        //    opacity: 1;
+        //}
+    }
+}
+
+.logo__link:visited {
+    color: $text-color_light;
+}
+
+.search__bar {
+    border: 2px $text-color_light solid;
+    background-color: $background-color_light;
+    color: $text-color_light;
+
+    &::placeholder {
+        color: $text-color_light;
+    }
+
+    &:focus {
+        outline: 2px $text-color_light solid;
+        outline-offset: 4px;
+    }
+}
+
+.search__icon {
+    border: 2px $text-color_light solid;
+
+    &:focus {
+        outline: 2px $text-color_light solid;
+        outline-offset: 4px;
+    }
+}

@@ -1,0 +1,25 @@
+@import "variables";
+
+@mixin weather-item-styles($height: $weather-item-height_default, $width: $weather-item-width_default, $font-size: $font-size_default) {
+  height: $height;
+  max-width: $width;
+  font-size: $font-size;
+}
+
+@mixin search-bar-styles($height, $width, $font-size) {
+  height: $height;
+  width: $width;
+  font-size: $font-size;
+}
+
+@mixin center-styles() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
