@@ -27,12 +27,14 @@ jobs:
 
       - name: Build
         run: npm run build
-        
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+        env:
           VUE_APP_API_KEY: ${{ secrets.VUE_APP_API_KEY }}
           VUE_APP_BASE_URL: ${{ secrets.VUE_APP_BASE_URL }}
           VUE_APP_GET_IMG_URL: ${{ secrets.VUE_APP_GET_IMG_URL }}
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        run: echo ${{ secrets.VUE_APP_API_KEY }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
