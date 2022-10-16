@@ -34,7 +34,6 @@ jobs:
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        run: echo ${{ secrets.VUE_APP_API_KEY }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
