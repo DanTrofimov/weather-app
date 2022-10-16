@@ -30,11 +30,9 @@ jobs:
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        env:
-          VUE_APP_BASE_URL: ${{ secrets.VUE_APP_API_KEY }}
-          VUE_APP_API_KEY: ${{ secrets.VUE_APP_BASE_URL }}
-          VUE_APP_GET_IMG_URL: ${{ secrets.VUE_APP_GET_IMG_URL }}
-
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          VUE_APP_API_KEY: ${{ secrets.VUE_APP_API_KEY }}
+          VUE_APP_BASE_URL: ${{ secrets.VUE_APP_BASE_URL }}
+          VUE_APP_GET_IMG_URL: ${{ secrets.VUE_APP_GET_IMG_URL }}
