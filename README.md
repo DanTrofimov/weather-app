@@ -4,7 +4,7 @@
 In [this app](https://dantrofimov.github.io/weather-app/#/) I used https://openweathermap.org/api to get some info about current temperature, wind speed, pressure etc. You can get information about weather in three different  default cities. Also you can get more information about specific city.
 
 
-![adaptive](https://github.com/chackydude/weather-app/raw/master/weather-app/public/gifs/adaptive-2.gif)
+![adaptive](https://github.com/chackydude/weather-app/raw/master/public/gifs/adaptive-2.gif)
 
 ### About API:
 
