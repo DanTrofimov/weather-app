@@ -1,5 +1,8 @@
 # web weather SPA :partly_sunny:
 
+https://github.com/DanTrofimov/weather-app/blob/master/.github/workflows/deploy.yml
+
+[![deploy](https://github.com/DanTrofimov/weather-app/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/DanTrofimov/weather-app/actions/workflows/deploy.yml)
 ### About
 Tried https://openweathermap.org/api to get some info about current temperature, wind speed, pressure etc.
 
