@@ -1,9 +1,6 @@
 <template>
   <div class="default-weather-content content">
-    <div
-      v-if="getWeather.length"
-      class="content__default-wrapper"
-    >
+    <div v-if="getWeather.length" class="content__default-wrapper">
       <WeatherItem
         v-for="weather in getWeather.list"
         :key="weather.name"
@@ -16,11 +13,9 @@
         :img-link="imgLink + weather.weather[0].icon + '.png'"
       />
     </div>
-    <p
-      v-else
-      class="content__api-error"
-    >
-      ⚠️ Error during getting weather data. <br> Try to turn on VPN.
+    <p v-else class="content__api-error">
+      ⚠️ Error during getting weather data. <br />
+      Try to turn on VPN.
     </p>
 
     <p class="content__obtained-info">
@@ -39,14 +34,9 @@
           class="search__bar"
           placeholder="Enter the city name..."
           @keypress="submit"
-        >
+        />
       </label>
-      <button
-        class="search__icon"
-        @click="loadCustomWeather"
-      >
-        🔍
-      </button>
+      <button class="search__icon" @click="loadCustomWeather">🔍</button>
     </div>
     <div
       v-if="typeof getCustomWeather.name != 'undefined' && !getErrorStatus"
@@ -69,63 +59,65 @@
         :wind-degree="getCustomWeather.wind.deg"
       />
     </div>
-    <div
-      v-if="getErrorStatus"
-      class="unknown-city"
-    >
+    <div v-if="getErrorStatus" class="unknown-city">
       <h3>Unknown city</h3>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import WeatherItem from '../components/WeatherItem'
-import DetailedWeather from '../components/DetailedWeatherItem'
+import { mapActions, mapGetters } from "vuex";
+import WeatherItem from "../components/WeatherItem";
+import DetailedWeather from "../components/DetailedWeatherItem";
 
 export default {
-  name: 'Weather',
+  name: "WeatherPage",
   components: { DetailedWeather, WeatherItem },
-  data () {
+  data() {
     return {
-      query: '',
+      query: "",
       date: new Date(),
       imgLink: process.env.VUE_APP_GET_IMG_URL,
       cities: [
-        { name: 'Boston', id: 4930956 },
-        { name: 'Kazan', id: 551487 },
-        { name: 'Moscow', id: 524901 }
+        { name: "Boston", id: 4930956 },
+        { name: "Kazan", id: 551487 },
+        { name: "Moscow", id: 524901 },
         // { name: 'London', id: 2643743 },
         // { name: 'New York', id: 5128581 },
         // { name: 'Minsk', id: 625144 }
-      ]
-    }
+      ],
+    };
   },
   computed: {
-    ...mapGetters(['getWeather', 'getCustomWeather', 'getErrorStatus', 'getObtainedDate'])
+    ...mapGetters([
+      "getWeather",
+      "getCustomWeather",
+      "getErrorStatus",
+      "getObtainedDate",
+    ]),
   },
   filters: {
-    toDate (value) {
-      return value.toLocaleString('en-US')
-    }
+    toDate(value) {
+      return value.toLocaleString("en-US");
+    },
   },
   methods: {
-    ...mapActions(['fetchWeather', 'fetchWeatherByName']),
-    loadCustomWeather () {
-      if (typeof this.getCustomWeather !== 'undefined' && this.query.trim()) {
-        this.fetchWeatherByName(this.query)
+    ...mapActions(["fetchWeather", "fetchWeatherByName"]),
+    loadCustomWeather() {
+      if (typeof this.getCustomWeather !== "undefined" && this.query.trim()) {
+        this.fetchWeatherByName(this.query);
       }
     },
-    submit (e) {
-      if (e.key === 'Enter' && this.query.trim()) {
-        this.loadCustomWeather()
+    submit(e) {
+      if (e.key === "Enter" && this.query.trim()) {
+        this.loadCustomWeather();
       }
-    }
+    },
   },
-  mounted () {
-    this.fetchWeather(this.cities.map(city => city.id))
-  }
-}
+  mounted() {
+    this.fetchWeather(this.cities.map((city) => city.id));
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -202,13 +194,17 @@ export default {
 }
 
 .search__bar {
-   padding: 0 10px 0 10px;
-   @include search-bar-styles($search-height_default, $search-width_default, $search-font-size_default)
- }
+  padding: 0 10px 0 10px;
+  @include search-bar-styles(
+    $search-height_default,
+    $search-width_default,
+    $search-font-size_default
+  );
+}
 
 .search__icon {
   font-size: 20px;
-  background-color: rgb(0,0,0,0);
+  background-color: rgb(0, 0, 0, 0);
   padding: 5px;
 }
 
@@ -217,64 +213,76 @@ export default {
 }
 
 .unknown-city {
-    height: 10vh;
-    @include center-styles();
+  height: 10vh;
+  @include center-styles();
 }
 
 @media (max-width: 540px) {
-    .search__bar {
-      @include search-bar-styles($search-height_default, $search-width_medium, $search-font-size_medium)
-    }
+  .search__bar {
+    @include search-bar-styles(
+      $search-height_default,
+      $search-width_medium,
+      $search-font-size_medium
+    );
+  }
 
-    .custom {
-      flex-direction: column;
-    }
+  .custom {
+    flex-direction: column;
+  }
 
-    .custom__weather-item, .custom__detailed-weather-item {
-      align-self: center;
-    }
+  .custom__weather-item,
+  .custom__detailed-weather-item {
+    align-self: center;
+  }
 }
 
 @media (max-width: 500px) {
+  .content__default-wrapper {
+    grid-template-columns: repeat(auto-fill, $weather-item-width_medium);
 
-    .content__default-wrapper {
-      grid-template-columns: repeat(auto-fill, $weather-item-width_medium);
-
-      .default__item {
-        @include weather-item-styles($weather-item-height_medium, $weather-item-width_medium, $font-size_medium)
-      }
+    .default__item {
+      @include weather-item-styles(
+        $weather-item-height_medium,
+        $weather-item-width_medium,
+        $font-size_medium
+      );
     }
+  }
 
-    .content__obtained-info {
-      width: 210px;
-    }
+  .content__obtained-info {
+    width: 210px;
+  }
 
-    .content__suggestion {
-      font-size: 1em;
-      max-width: 300px;
-    }
+  .content__suggestion {
+    font-size: 1em;
+    max-width: 300px;
+  }
 
-    .search__bar {
-      font-size: 12px;
-    }
+  .search__bar {
+    font-size: 12px;
+  }
 
-    .custom__detailed-weather-item {
-      line-height: 20px;
-      @include weather-item-styles(300px, 220px, 15px)
-    }
+  .custom__detailed-weather-item {
+    line-height: 20px;
+    @include weather-item-styles(300px, 220px, 15px);
+  }
 
-    .custom__weather-item {
-      @include weather-item-styles(210px, 220px, 15px)
-    }
+  .custom__weather-item {
+    @include weather-item-styles(210px, 220px, 15px);
+  }
 }
 
 @media (max-width: 360px) {
-    .content__default-wrapper {
-      grid-template-columns: repeat(auto-fill, $weather-item-width_small);
+  .content__default-wrapper {
+    grid-template-columns: repeat(auto-fill, $weather-item-width_small);
 
-      .default__item {
-        @include weather-item-styles($weather-item-height_small, $weather-item-width_small, $font-size_small)
-      }
+    .default__item {
+      @include weather-item-styles(
+        $weather-item-height_small,
+        $weather-item-width_small,
+        $font-size_small
+      );
     }
+  }
 }
 </style>

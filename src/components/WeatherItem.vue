@@ -1,15 +1,9 @@
 <template>
   <div class="weather-item item">
     <div class="weather-item__content">
-      <h2> {{ name }} </h2>
-      <img
-        v-if="imgLink"
-        :src="imgLink"
-        alt="weather-icon"
-      >
-      <h1 class="item__temperature">
-        {{ temperature | round }}°C
-      </h1>
+      <h2>{{ name }}</h2>
+      <img v-if="imgLink" :src="imgLink" alt="weather-icon" />
+      <h1 class="item__temperature">{{ temperature | round }}°C</h1>
       <div class="item__other-info">
         <p>Wind speed: {{ wind }}mph</p>
         <p>Humidity: {{ humidity }}%</p>
@@ -21,11 +15,11 @@
 
 <script>
 export default {
-  name: 'WeatherItem',
+  name: "WeatherItem",
   filters: {
-    round (value) {
-      return Math.round(value)
-    }
+    round(value) {
+      return Math.round(value);
+    },
   },
   props: {
     name: String,
@@ -33,18 +27,18 @@ export default {
     wind: Number,
     humidity: Number,
     pressure: Number,
-    imgLink: String
-  }
-}
+    imgLink: String,
+  },
+};
 </script>
 
 <style scoped lang="scss">
 @import "public/css/mixins";
 
 .weather-item {
-    text-align: center;
-    @include center-styles();
-    @include weather-item-styles()
+  text-align: center;
+  @include center-styles();
+  @include weather-item-styles();
 }
 
 .weather-item__content {
