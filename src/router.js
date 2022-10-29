@@ -14,6 +14,7 @@ export default new Router({
     {
       path: '/default',
       // lazy loading for page
+      // eslint-disable-next-line
       component: () => import('./views/Weather.vue')
     }
   ]

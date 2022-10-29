@@ -1,8 +1,8 @@
 <template>
-    <div id="app">
-        <HeaderBar @changeTheme="changeTheme"/>
-        <router-view/>
-    </div>
+  <div id="app">
+    <HeaderBar @changeTheme="changeTheme" />
+    <router-view />
+  </div>
 </template>
 
 <script>
@@ -12,6 +12,10 @@ export default {
   name: 'App',
   components: {
     HeaderBar
+  },
+
+  mounted () {
+    this.themeSwitchLocal(localStorage.getItem('theme'))
   },
   methods: {
     themeSwitchLocal (localStoreTheme) {
@@ -44,10 +48,6 @@ export default {
           break
       }
     }
-  },
-
-  mounted () {
-    this.themeSwitchLocal(localStorage.getItem('theme'))
   }
 }
 </script>

@@ -1,12 +1,21 @@
 <template>
-    <div class="header-wrapper">
-        <p class="header-wrapper__logo logo">
-            <router-link to="/" class="logo__link">weather-app</router-link>
-        </p>
-        <button tabindex=0 class="header-wrapper__theme-changer" v-on:click="$emit('changeTheme')">
-            change theme
-        </button>
-    </div>
+  <div class="header-wrapper">
+    <p class="header-wrapper__logo logo">
+      <router-link
+        to="/"
+        class="logo__link"
+      >
+        weather-app
+      </router-link>
+    </p>
+    <button
+      tabindex="0"
+      class="header-wrapper__theme-changer"
+      @click="$emit('changeTheme')"
+    >
+      change theme
+    </button>
+  </div>
 </template>
 
 <script>

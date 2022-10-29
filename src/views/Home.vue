@@ -1,19 +1,22 @@
 <template>
-    <div class="home-page-wrapper wrapper">
-        <div>
-            <h1 class="wrapper__page-title">
-                HomePage
-            </h1>
-            <p class="wrapper__description">
-                Vue weather web-application ⛅. If you want to check application press "Get Started".
-            </p>
-            <p class="wrapper__navItem navItem">
-                <router-link to="/default" class="navItem__link">
-                    GET STARTED
-                </router-link>
-            </p>
-        </div>
+  <div class="home-page-wrapper wrapper">
+    <div>
+      <h1 class="wrapper__page-title">
+        HomePage
+      </h1>
+      <p class="wrapper__description">
+        Vue weather web-application ⛅. If you want to check application press "Get Started".
+      </p>
+      <p class="wrapper__navItem navItem">
+        <router-link
+          to="/default"
+          class="navItem__link"
+        >
+          GET STARTED
+        </router-link>
+      </p>
     </div>
+  </div>
 </template>
 
 <script>
