@@ -6,7 +6,7 @@ To work with API (from Russia) we need to use VPN. Trying to bypass the that res
 ## About
 Tried https://openweathermap.org/api to get some info about current temperature, wind speed, pressure etc.
 
-![adaptive](https://github.com/chackydude/weather-app/raw/master/demo-2.gif)
+![adaptive](https://github.com/chackydude/weather-app/raw/master/gifs/demo.gif)
 
 ## Setup
 
