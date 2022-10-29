@@ -1,6 +1,6 @@
 <template>
     <div class="default-weather-content content">
-        <div class="content__default-wrapper">
+        <div class="content__default-wrapper" v-if="getWeather.length">
             <WeatherItem
                     class="default__item"
                     v-for="weather in getWeather.list"
@@ -13,13 +13,10 @@
                     v-bind:img-link="imgLink + weather.weather[0].icon + '.png'"
             />
         </div>
+        <p v-else class="content__api-error">⚠️ Error during getting weather data. <br/> Try to turn on VPN.</p>
 
-        <p class="content__obtained-info" v-if="getObtainedDate != 'undefined'">
+        <p class="content__obtained-info">
             Obtained {{ getObtainedDate | toDate }}
-        </p>
-
-        <p v-else class="content__obtained-info">
-            Error to obtain
         </p>
 
         <h3 class="content__suggestion">
@@ -140,6 +137,14 @@ export default {
   .content__obtained-info {
     margin: 30px auto;
   }
+}
+
+.content__api-error {
+  display: grid;
+  place-items: center;
+  height: 40vh;
+  text-align: center;
+  line-height: 2;
 }
 
 .content__obtained-info {
