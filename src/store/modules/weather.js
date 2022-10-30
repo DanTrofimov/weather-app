@@ -1,4 +1,5 @@
 import axios from "axios";
+import { handleError } from "../../utils/errorHandler";
 
 export default {
   actions: {
@@ -10,23 +11,9 @@ export default {
         )
         .then((response) => {
           ctx.commit("updateWeather", response.data);
-          const obtainedDatePayload = {
-            date: response.data.list[0].dt * 1000,
-            field: "obtainedDate",
-          };
-          ctx.commit("updateDate", obtainedDatePayload);
         })
-        .catch((err) => {
-          if (err.response) {
-            console.error("Oh, we get an error response (5xx, 4xx)");
-          } else if (err.request) {
-            console.error(
-              "Some troubles with a network, pls check your connection"
-            );
-          } else {
-            console.error("Something went wrong, pls refresh the page");
-          }
-        });
+        // TODO: add error handler for default view
+        .catch(handleError(() => {}));
     },
 
     async fetchWeatherByName(ctx, name) {
@@ -35,36 +22,11 @@ export default {
           `${process.env.VUE_APP_BASE_URL}weather?q=${name}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
         )
         .then((response) => {
+          console.log(response);
           ctx.commit("updateCustomWeather", response.data);
-          ctx.commit("updateErrorStatus", false);
-          const sunrisePayload = {
-            date: response.data.sys.sunrise * 1000,
-            field: "sunrise",
-          };
-          const sunsetPayload = {
-            date: response.data.sys.sunset * 1000,
-            field: "sunset",
-          };
-          const customPayload = {
-            date: response.data.dt * 1000,
-            field: "customObtained",
-          };
-          ctx.commit("updateDate", customPayload);
-          ctx.commit("updateDate", sunrisePayload);
-          ctx.commit("updateDate", sunsetPayload);
+          ctx.commit("updateError", undefined);
         })
-        .catch((err) => {
-          if (err.response) {
-            console.error("Oh, we get an error response (5xx, 4xx)");
-            ctx.commit("updateErrorStatus", true);
-          } else if (err.request) {
-            console.error(
-              "Some troubles with a network, pls check your connection"
-            );
-          } else {
-            console.error("Something went wrong, pls refresh the page");
-          }
-        });
+        .catch(handleError((message) => ctx.commit("updateError", message)));
     },
   },
   mutations: {
@@ -74,21 +36,14 @@ export default {
     updateCustomWeather(state, customWeather) {
       state.customWeather = customWeather;
     },
-    updateErrorStatus(state, error) {
+    updateError(state, error) {
       state.weatherError = error;
-    },
-    updateDate(state, payload) {
-      state[payload.field].setTime(payload.date);
     },
   },
   state: {
-    weather: [],
+    weather: {},
     customWeather: {},
-    weatherError: false,
-    obtainedDate: new Date(),
-    sunrise: new Date(),
-    sunset: new Date(),
-    customObtained: new Date(),
+    weatherError: undefined,
   },
   getters: {
     getWeather(state) {
@@ -97,20 +52,8 @@ export default {
     getCustomWeather(state) {
       return state.customWeather;
     },
-    getErrorStatus(state) {
+    getError(state) {
       return state.weatherError;
-    },
-    getObtainedDate(state) {
-      return state.obtainedDate;
-    },
-    getSunrise(state) {
-      return state.sunrise;
-    },
-    getSunset(state) {
-      return state.sunset;
-    },
-    getCustomObtained(state) {
-      return state.customObtained;
     },
   },
 };
