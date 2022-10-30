@@ -1,16 +1,11 @@
 <template>
   <div class="default-weather-content content">
-    <div v-if="getWeather.length" class="content__default-wrapper">
+    <div v-if="weatheItemsLength" class="content__default-wrapper">
       <WeatherItem
         v-for="weather in getWeather.list"
         :key="weather.name"
         class="default__item"
-        :name="weather.name"
-        :temperature="weather.main.temp"
-        :wind="weather.wind.speed"
-        :humidity="weather.main.humidity"
-        :pressure="weather.main.pressure"
-        :img-link="imgLink + weather.weather[0].icon + '.png'"
+        :weather="weather"
       />
     </div>
     <p v-else class="content__api-error">
@@ -18,9 +13,7 @@
       Try to turn on VPN.
     </p>
 
-    <p class="content__obtained-info">
-      Obtained {{ getObtainedDate | toDate }}
-    </p>
+    <p class="content__obtained-info">Obtained {{ obtainedDate | toDate }}</p>
 
     <h3 class="content__suggestion">
       Try to find out weather forecast in your city:
@@ -39,28 +32,17 @@
       <button class="search__icon" @click="loadCustomWeather">🔍</button>
     </div>
     <div
-      v-if="typeof getCustomWeather.name != 'undefined' && !getErrorStatus"
+      v-if="typeof getCustomWeather.name != 'undefined' && !getError"
       class="content__custom-weather-info custom"
     >
-      <WeatherItem
-        class="custom__weather-item"
-        :name="getCustomWeather.name"
-        :temperature="getCustomWeather.main.temp"
-        :wind="getCustomWeather.wind.speed"
-        :humidity="getCustomWeather.main.humidity"
-        :pressure="getCustomWeather.main.pressure"
-        :img-link="imgLink + getCustomWeather.weather[0].icon + '.png'"
-      />
+      <WeatherItem class="custom__weather-item" :weather="getCustomWeather" />
       <DetailedWeather
         class="custom__detailed-weather-item"
-        :temp-max="getCustomWeather.main.temp_max"
-        :temp-min="getCustomWeather.main.temp_min"
-        :temp-feels="getCustomWeather.main.feels_like"
-        :wind-degree="getCustomWeather.wind.deg"
+        :custom-weather="getCustomWeather"
       />
     </div>
-    <div v-if="getErrorStatus" class="unknown-city">
-      <h3>Unknown city</h3>
+    <div v-if="getError" class="unknown-city">
+      <h3>{{ getError }}</h3>
     </div>
   </div>
 </template>
@@ -73,15 +55,19 @@ import DetailedWeather from "../components/DetailedWeatherItem";
 export default {
   name: "WeatherPage",
   components: { DetailedWeather, WeatherItem },
+  filters: {
+    toDate(value) {
+      return new Date(value * 1000).toLocaleString("en-US");
+    },
+  },
   data() {
     return {
       query: "",
       date: new Date(),
-      imgLink: process.env.VUE_APP_GET_IMG_URL,
       cities: [
-        { name: "Boston", id: 4930956 },
+        { name: "Kyiv", id: 703448 },
         { name: "Kazan", id: 551487 },
-        { name: "Moscow", id: 524901 },
+        { name: "Kharkiv", id: 706483 },
         // { name: 'London', id: 2643743 },
         // { name: 'New York', id: 5128581 },
         // { name: 'Minsk', id: 625144 }
@@ -89,17 +75,17 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([
-      "getWeather",
-      "getCustomWeather",
-      "getErrorStatus",
-      "getObtainedDate",
-    ]),
-  },
-  filters: {
-    toDate(value) {
-      return value.toLocaleString("en-US");
+    ...mapGetters(["getWeather", "getCustomWeather", "getError"]),
+
+    obtainedDate() {
+      return this.weatheItemsLength ? this.getWeather.list[0].dt : "";
     },
+    weatheItemsLength() {
+      return this.getWeather?.list?.length;
+    },
+  },
+  mounted() {
+    this.fetchWeather(this.cities.map((city) => city.id));
   },
   methods: {
     ...mapActions(["fetchWeather", "fetchWeatherByName"]),
@@ -113,9 +99,6 @@ export default {
         this.loadCustomWeather();
       }
     },
-  },
-  mounted() {
-    this.fetchWeather(this.cities.map((city) => city.id));
   },
 };
 </script>
