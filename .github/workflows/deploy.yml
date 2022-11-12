@@ -31,7 +31,8 @@ jobs:
           VUE_APP_API_KEY: ${{ secrets.VUE_APP_API_KEY }}
           VUE_APP_BASE_URL: ${{ secrets.VUE_APP_BASE_URL }}
           VUE_APP_GET_IMG_URL: ${{ secrets.VUE_APP_GET_IMG_URL }}
-        
+          VUE_APP_API_PROXY: ${{ secrets.VUE_APP_API_PROXY }}
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
