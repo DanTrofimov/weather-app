@@ -42,7 +42,10 @@ export default {
     },
     imgLink() {
       return (
-        process.env.VUE_APP_GET_IMG_URL + this.weather.weather[0].icon + ".png"
+        process.env.VUE_APP_API_PROXY +
+        process.env.VUE_APP_GET_IMG_URL +
+        this.weather.weather[0].icon +
+        ".png"
       );
     },
   },
