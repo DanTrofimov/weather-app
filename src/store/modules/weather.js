@@ -22,7 +22,6 @@ export default {
           `${process.env.VUE_APP_API_PROXY}${process.env.VUE_APP_BASE_URL}weather?q=${name}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
         )
         .then((response) => {
-          console.log(response);
           ctx.commit("updateCustomWeather", response.data);
           ctx.commit("updateError", undefined);
         })
