@@ -40,3 +40,4 @@ npm run build
 - Axios
 - SCSS
 - GitHub actions for CD 
+- Basic Express & Heroku to write & deploy API proxy
