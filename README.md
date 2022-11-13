@@ -39,4 +39,4 @@ npm run build
 - Vuex 3.5.1
 - Axios
 - SCSS
-- GitHub actions for CD
+- GitHub actions for CD 
