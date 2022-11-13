@@ -1,4 +1,4 @@
-# web weather SPA :partly_sunny:
+# :partly_sunny:  web weather SPA
 [![deploy](https://github.com/DanTrofimov/weather-app/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/DanTrofimov/weather-app/actions/workflows/deploy.yml)
 
 ## About
