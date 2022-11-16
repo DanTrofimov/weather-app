@@ -10,7 +10,7 @@
     </div>
     <p v-else class="content__api-error">
       ⚠️ Error during getting weather data. <br />
-      Try to turn on VPN.
+      Try to refresh the page.
     </p>
 
     <p class="content__obtained-info">Obtained {{ obtainedDate | toDate }}</p>
