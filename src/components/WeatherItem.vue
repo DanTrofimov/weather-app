@@ -44,9 +44,7 @@ export default {
     },
     imgLink() {
       return (
-        getDynamicEnv().VUE_APP_GET_IMG_URL +
-        this.weather.weather[0].icon +
-        ".png"
+        process.env.VUE_APP_GET_IMG_URL + this.weather.weather[0].icon + ".png"
       );
     },
   },

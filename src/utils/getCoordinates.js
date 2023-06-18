@@ -6,9 +6,7 @@ import getDynamicEnv from "./getDynamicEnv";
 export default async function fetchCityCoordinates(cityName) {
   const response = await axios
     .get(
-      `${getDynamicEnv().VUE_APP_GEOCODER}/direct?q=${cityName}&limit=1&APPID=${
-        process.env.VUE_APP_API_KEY
-      }`
+      `${process.env.VUE_APP_GEOCODER}/direct?q=${cityName}&limit=1&APPID=${process.env.VUE_APP_API_KEY}`
     )
     .catch(handleError(() => {}));
 
