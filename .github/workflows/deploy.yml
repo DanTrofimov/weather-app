@@ -25,6 +25,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Setup env
+        run: |
+          touch .env
+          echo VUE_APP_API_KEY=${{ secrets.VUE_APP_API_KEY }} >> .env
+          echo VUE_APP_BASE_URL=${{ secrets.VUE_APP_BASE_URL }} >> .env
+          echo VUE_APP_GEOCODER=${{ secrets.VUE_APP_GEOCODER }} >> .env
+          echo VUE_APP_GET_IMG_URL=${{ secrets.VUE_APP_GET_IMG_URL }} >> .env
+
       - name: Build
         run: npm run build
         env:
