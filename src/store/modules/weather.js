@@ -1,5 +1,6 @@
 import axios from "axios";
 import { handleError } from "../../utils/errorHandler";
+import fetchCityCoordinates from "../../utils/getCoordinates";
 
 export default {
   actions: {
@@ -7,7 +8,7 @@ export default {
       const cities = citiesId.toString();
       await axios
         .get(
-          `${process.env.VUE_APP_API_PROXY}${process.env.VUE_APP_BASE_URL}group?id=${cities}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
+          `${process.env.VUE_APP_BASE_URL}group?id=${cities}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
         )
         .then((response) => {
           ctx.commit("updateWeather", response.data);
@@ -17,9 +18,11 @@ export default {
     },
 
     async fetchWeatherByName(ctx, name) {
+      const { lat, lon } = await fetchCityCoordinates(name);
+
       await axios
         .get(
-          `${process.env.VUE_APP_API_PROXY}${process.env.VUE_APP_BASE_URL}weather?q=${name}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
+          `${process.env.VUE_APP_BASE_URL}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
         )
         .then((response) => {
           ctx.commit("updateCustomWeather", response.data);
