@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import getDynamicEnv from "../utils/getDynamicEnv";
+
 export default {
   name: "WeatherItem",
   filters: {
@@ -42,7 +44,9 @@ export default {
     },
     imgLink() {
       return (
-        process.env.VUE_APP_GET_IMG_URL + this.weather.weather[0].icon + ".png"
+        getDynamicEnv().VUE_APP_GET_IMG_URL +
+        this.weather.weather[0].icon +
+        ".png"
       );
     },
   },
