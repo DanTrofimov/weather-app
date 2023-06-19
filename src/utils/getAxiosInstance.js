@@ -18,4 +18,6 @@ const instance = axios.create({
   ...proxy,
 });
 
+console.log(instance.defaults);
+
 export default instance;
