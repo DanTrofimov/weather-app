@@ -54,6 +54,7 @@ http {
 | VUE_APP_API_URL  | [API URL](https://openweathermap.org/api) |
 | VUE_APP_API_KEY  | OpenWeather API key |
 | VUE_APP_GET_IMG_URL  | URL to get images from API |
+| VUE_APP_API_PROXY  | API proxy URL |
 
 ## Stack
 
