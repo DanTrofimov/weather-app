@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import getDynamicEnv from "../utils/getDynamicEnv";
-
 export default {
   name: "WeatherItem",
   filters: {

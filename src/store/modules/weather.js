@@ -1,16 +1,12 @@
-import axios from "axios";
 import { handleError } from "../../utils/errorHandler";
-import fetchCityCoordinates from "../../utils/getCoordinates";
-import getDynamicEnv from "../../utils/getDynamicEnv";
+import axiosInstance from "../../utils/getAxiosInstance";
 
 export default {
   actions: {
     async fetchWeather(ctx, citiesId) {
       const cities = citiesId.toString();
-      await axios
-        .get(
-          `${process.env.VUE_APP_BASE_URL}group?id=${cities}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
-        )
+      await axiosInstance
+        .get(`data/2.5/group?id=${cities}&units=metric`)
         .then((response) => {
           ctx.commit("updateWeather", response.data);
         })
@@ -19,12 +15,14 @@ export default {
     },
 
     async fetchWeatherByName(ctx, name) {
-      const { lat, lon } = await fetchCityCoordinates(name);
+      const response = await axiosInstance
+        .get(`/geo/1.0/direct?q=${name}&limit=1`)
+        .catch(handleError(() => {}));
 
-      await axios
-        .get(
-          `${process.env.VUE_APP_BASE_URL}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`
-        )
+      const { lon, lat } = response.data[0];
+
+      await axiosInstance
+        .get(`/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`)
         .then((response) => {
           ctx.commit("updateCustomWeather", response.data);
           ctx.commit("updateError", undefined);
