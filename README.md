@@ -25,7 +25,8 @@ npm run build
 
 ## API Proxy
 To get access for [OpenWeather](https://openweathermap.org/api) you can use proxy server. For example you can setup any of this:
-- `CloudFlare` proxy workers, they are free to deploy
+- [`CloudFlare` proxy workers](https://developers.cloudflare.com/workers/get-started/guide/), they are free to deploy
+- Use simple [Express server with proxy middleware](https://github.com/DanTrofimov/nodejs-proxy)
 - Deploy a custom [`Nginx` reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/), example of `Nginx` config:
 ```nginx
 http {
