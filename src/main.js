@@ -2,9 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import vkBridge from "@vkontakte/vk-bridge";
-
-vkBridge.send("VKWebAppInit");
 
 Vue.config.productionTip = false;
 
