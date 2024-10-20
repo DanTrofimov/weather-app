@@ -9,6 +9,7 @@
     "lint:fix": "eslint 'src/**/*.{js,vue}' --fix"
   },
   "dependencies": {
+    "@vkontakte/vk-bridge": "^2.15.1",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
